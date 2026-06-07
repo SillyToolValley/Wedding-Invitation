@@ -1,0 +1,100 @@
+/* ============================================================
+   DESIGN TOKENS
+   단일 디자인 시스템. 레거시 + 13개 fix.css 를 대체한다.
+   테마는 :root(modern) / [data-theme="retro"] 로만 분기.
+   ============================================================ */
+
+:root {
+  /* ---- Brand palette : Romantic Garden (2026) ---- */
+  --c-ivory:        #fbf8f3;
+  --c-cream:        #f3ece1;
+  --c-blush:        #e7c7c2;
+  --c-blush-soft:   #f3e1dd;
+  --c-rose:         #c98a86;   /* dusty rose accent */
+  --c-mauve:        #9c6f72;   /* deeper accent for conviction */
+  --c-sage:         #8a9a7b;
+  --c-sage-deep:    #5f6f54;
+  --c-gold:         #b89b6e;   /* hairlines / dividers */
+  --c-ink:          #3a342f;   /* primary text */
+  --c-ink-soft:     #6b6259;   /* secondary text */
+  --c-line:         #e6ddcf;   /* subtle borders */
+
+  /* ---- Semantic ---- */
+  --bg:             var(--c-ivory);
+  --bg-panel:       #ffffff;
+  --bg-tint:        var(--c-blush-soft);
+  --text:           var(--c-ink);
+  --text-soft:      var(--c-ink-soft);
+  --accent:         var(--c-rose);
+  --accent-deep:    var(--c-mauve);
+  --hair:           var(--c-gold);
+  --border:         var(--c-line);
+
+  /* ---- Typography ---- */
+  --font-serif: "Cormorant Garamond", "Nanum Myeongjo", "Noto Serif KR", serif;
+  --font-sans:  "Pretendard", "Noto Sans KR", system-ui, -apple-system, sans-serif;
+  --font-script:"Cormorant Garamond", serif;
+
+  /* fluid type scale */
+  --fs-display: clamp(2.6rem, 11vw, 4.4rem);
+  --fs-h1:      clamp(1.7rem, 6vw, 2.3rem);
+  --fs-h2:      clamp(1.25rem, 4.6vw, 1.6rem);
+  --fs-h3:      clamp(1.05rem, 3.8vw, 1.2rem);
+  --fs-body:    1rem;
+  --fs-sm:      0.875rem;
+  --fs-xs:      0.78rem;
+  --eyebrow-ls: 0.42em;   /* letter-spacing for small caps eyebrows */
+
+  /* ---- Spacing rhythm ---- */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.25rem;
+  --space-5: 3.5rem;
+  --space-6: 5rem;
+  --section-y: clamp(3.25rem, 9vw, 5.5rem);
+
+  /* ---- Shape & depth ---- */
+  --radius-sm: 8px;
+  --radius:    16px;
+  --radius-lg: 26px;
+  --shadow-sm: 0 4px 18px rgba(58, 52, 47, 0.06);
+  --shadow:    0 14px 40px rgba(58, 52, 47, 0.10);
+  --shadow-lg: 0 28px 70px rgba(58, 52, 47, 0.16);
+
+  /* ---- Layout ---- */
+  --page-max: 460px;        /* mobile-first invitation column */
+  --content-pad: clamp(1.25rem, 5vw, 1.9rem);
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur: 0.6s;
+}
+
+/* ============================================================
+   RETRO THEME — 8-bit overrides (same markup, different tokens)
+   ============================================================ */
+[data-theme="retro"] {
+  --c-ink: #f7fbff;
+  --bg:        #070a14;
+  --bg-panel:  #101827;
+  --bg-tint:   #17243a;
+  --text:      #f7fbff;
+  --text-soft: #b9d0e8;
+  --accent:      #ff006e;   /* runner pink */
+  --accent-deep: #ffde00;   /* runner yellow */
+  --hair:        #ffde00;
+  --border:      #31527a;
+
+  --font-serif: "Press Start 2P", "Galmuri11", monospace;
+  --font-sans:  "Galmuri11", "Press Start 2P", monospace;
+  --font-script:"Press Start 2P", "Galmuri11", monospace;
+
+  --radius-sm: 0px;
+  --radius:    0px;
+  --radius-lg: 0px;
+  --shadow-sm: 4px 4px 0 rgba(0,0,0,0.35);
+  --shadow:    6px 6px 0 rgba(0,0,0,0.4);
+  --shadow-lg: 8px 8px 0 rgba(0,0,0,0.45);
+}

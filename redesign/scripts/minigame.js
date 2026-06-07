@@ -226,7 +226,6 @@
   function isAttackHeld() {
     return keys.has('KeyJ') || touches.has('attack');
   }
-
   let isGameActive = false;
   let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
   
@@ -1671,7 +1670,6 @@
 
   function renderScene(W, H, animScale) {
     ctx.imageSmoothingEnabled = false;
-
     drawBackground(W, H);
 
     // Platform props stay behind the player.
@@ -1681,23 +1679,19 @@
     
     // Obstacles
     for (const o of obstacles) {
-      const spr = o.type === 'mine' ? SPR.mine : SPR.drone;
+      const spr = (o.type === 'mine') ? SPR.mine : SPR.drone;
       if (sprReady(spr)) {
         ctx.drawImage(spr, o.x, o.y, o.w, o.h);
       } else {
-        ctx.fillStyle = o.type === 'mine' ? '#ff0000' : '#00ffff';
+        ctx.fillStyle = (o.type === 'mine') ? '#ff0000' : '#00ffff';
         ctx.fillRect(o.x, o.y, o.w, o.h);
       }
     }
 
     // Bullets
     for (const b of bullets) {
-      if (sprReady(SPR.bullet)) {
-        ctx.drawImage(SPR.bullet, Math.floor(b.x), Math.floor(b.y), b.w, b.h);
-      } else {
-        ctx.fillStyle = '#ffde00';
-        ctx.fillRect(b.x, b.y, b.w, b.h);
-      }
+      if (sprReady(SPR.bullet)) ctx.drawImage(SPR.bullet, Math.floor(b.x), Math.floor(b.y), b.w, b.h);
+      else { ctx.fillStyle = '#ffde00'; ctx.fillRect(b.x, b.y, b.w, b.h); }
     }
 
     // Waves
@@ -1740,8 +1734,8 @@
       drawTiledParallaxBackgroundLayer(SPR.bg, BACKGROUND_BASE_SPEED, W, H);
     } else {
       const g = ctx.createLinearGradient(0, 0, 0, H);
-      g.addColorStop(0, '#1a0633');
-      g.addColorStop(1, '#0a0318');
+      g.addColorStop(0, '#2e2a56');
+      g.addColorStop(1, '#96aae0');
       ctx.fillStyle = g;
       ctx.fillRect(0, 0, W, H);
     }
@@ -1851,12 +1845,9 @@
   function drawPlayer(animScale) {
     const x = Math.floor(player.x);
     const y = Math.floor(player.y);
+    if (player.invulnerable > 0 && Math.sin(player.invulnerable * 30) > 0) ctx.globalAlpha = 0.5;
+
     const isMale = player.who === CHAR.MALE;
-
-    if (player.invulnerable > 0 && Math.sin(player.invulnerable * 30) > 0) {
-      ctx.globalAlpha = 0.5;
-    }
-
     let key;
     let fps = ANIM_FPS.run;
     let frame = 0;
@@ -1903,7 +1894,6 @@
       ctx.fillRect(x + 14, y + 50, 8, 10 + leg);
       ctx.fillRect(x + 28, y + 50, 8, 10 - leg);
     }
-
     ctx.globalAlpha = 1;
 
     if (!isMale) {

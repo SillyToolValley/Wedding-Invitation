@@ -1,0 +1,170 @@
+/* ============================================================
+   SCROLL REVEAL + AMBIENT EFFECTS
+   ============================================================ */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity .8s var(--ease), transform .8s var(--ease);
+  transition-delay: var(--reveal-delay, 0s);
+  will-change: opacity, transform;
+}
+[data-reveal].is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+  [data-theme="retro"] .ambient::before { animation: none !important; }
+}
+
+/* falling petals (modern only) */
+.petals { position: fixed; inset: 0; pointer-events: none; z-index: 30; overflow: hidden; }
+[data-theme="retro"] .petals { display: none; }
+.petal {
+  position: absolute; top: -8%;
+  width: 14px; height: 14px;
+  background: radial-gradient(circle at 30% 30%, var(--c-blush), var(--c-rose));
+  border-radius: 80% 0 80% 0;
+  opacity: 0.65;
+  animation: petalFall linear infinite;
+}
+@keyframes petalFall {
+  0%   { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
+  10%  { opacity: 0.7; }
+  100% { transform: translateY(110vh) translateX(40px) rotate(360deg); opacity: 0; }
+}
+
+/* ============================================================
+   RETRO THEME — 8-bit specific treatments
+   (structure stays identical; this only restyles surfaces)
+   ============================================================ */
+[data-theme="retro"] body { background: #070a14; image-rendering: pixelated; }
+[data-theme="retro"] .ambient {
+  background:
+    linear-gradient(180deg, rgba(7,10,20,0.2) 0%, rgba(7,10,20,0.72) 100%),
+    url("../../assets/pixel/game/Background/Stars.png") center / cover repeat-x,
+    url("../../assets/pixel/game/Background/Sky.png") center / cover repeat-x;
+  image-rendering: pixelated;
+}
+[data-theme="retro"] .ambient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    url("../../assets/pixel/game/Background/Cloud2.png") 0 18% / auto 45% repeat-x,
+    url("../../assets/pixel/game/Background/Cloud1.png") 0 34% / auto 34% repeat-x;
+  image-rendering: pixelated;
+  opacity: 0.82;
+  animation: retroCloudDrift 80s linear infinite;
+}
+[data-theme="retro"] .page {
+  background: rgba(7,10,20,0.94);
+  box-shadow: 0 0 0 4px var(--accent), 0 0 0 8px #070a14;
+}
+
+/* PIXEL-PERFECT: 레트로에서 모든 이미지·캔버스를 니어레스트(픽셀) 렌더 */
+[data-theme="retro"] img,
+[data-theme="retro"] canvas,
+[data-theme="retro"] .hero__photo img,
+[data-theme="retro"] .gallery__slide img {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+[data-theme="retro"] .hero__photo::after {
+  background: linear-gradient(180deg, rgba(7,10,20,0.16) 0%, rgba(7,10,20,0.32) 42%, rgba(7,10,20,0.92) 100%);
+}
+[data-theme="retro"] .hero__names { text-shadow: 3px 3px 0 #000, 0 0 18px var(--accent); font-size: clamp(1.1rem, 6vw, 1.9rem); line-height: 1.8; }
+[data-theme="retro"] .hero__names .amp { color: var(--accent-deep); font-style: normal; }
+[data-theme="retro"] .hero__date-top,
+[data-theme="retro"] .hero__sub { text-shadow: 2px 2px 0 #000; }
+
+[data-theme="retro"] .section-title,
+[data-theme="retro"] .invite__msg,
+[data-theme="retro"] .lead,
+[data-theme="retro"] .cd-unit__num,
+[data-theme="retro"] .closing__msg,
+[data-theme="retro"] .closing__names { text-shadow: 2px 2px 0 rgba(0,0,0,0.4); }
+
+/* blinking accent for retro CTAs */
+[data-theme="retro"] .btn--primary { animation: retroBlink 1.1s steps(1) infinite; }
+@keyframes retroBlink { 50% { filter: brightness(1.25); } }
+
+/* pixel heart for retro hero amp */
+[data-theme="retro"] .amp::before { content: "♥"; }
+
+/* retro divider becomes pixel dashes */
+[data-theme="retro"] .divider { color: var(--accent); }
+[data-theme="retro"] .divider::before, [data-theme="retro"] .divider::after {
+  background: repeating-linear-gradient(90deg, currentColor 0 6px, transparent 6px 12px); height: 3px; opacity: 1;
+}
+
+/* scanline overlay for retro immersion */
+[data-theme="retro"] .ambient::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(0,0,0,0.12) 0 1px, transparent 1px 3px);
+}
+@keyframes retroCloudDrift {
+  from { background-position: 0 18%, 0 34%; }
+  to { background-position: -960px 18%, -1440px 34%; }
+}
+
+/* ============================================================
+   RETRO-ONLY / MODERN-ONLY VISIBILITY
+   (single markup; sections appear per active theme)
+   ============================================================ */
+.retro-only { display: none; }
+[data-theme="retro"] .retro-only { display: block; }
+[data-theme="retro"] .modern-only { display: none; }
+
+/* ============================================================
+   RETRO FX — fireworks canvas + rising balloons
+   ============================================================ */
+.retro-fx { position: fixed; inset: 0; z-index: 0; pointer-events: none; display: none; mix-blend-mode: screen; }
+[data-theme="retro"] .retro-fx { display: block; }
+
+.balloons { position: fixed; inset: 0; z-index: 32; pointer-events: none; overflow: hidden; display: none; }
+[data-theme="retro"] .balloons { display: none; }
+.balloon {
+  position: absolute; bottom: -80px; width: 30px; height: 38px;
+  border-radius: 50% 50% 48% 48%;
+  image-rendering: pixelated;
+  box-shadow: inset -5px -6px 0 rgba(0,0,0,0.18);
+  animation: balloonRise linear infinite;
+  opacity: 0.92;
+}
+.balloon::after { /* string */
+  content: ""; position: absolute; left: 50%; top: 100%;
+  width: 2px; height: 26px; background: rgba(255,255,255,0.35); transform: translateX(-50%);
+}
+.balloon::before { /* knot */
+  content: ""; position: absolute; left: 50%; top: 100%; width: 6px; height: 6px;
+  background: inherit; transform: translateX(-50%) rotate(45deg);
+}
+@keyframes balloonRise {
+  0%   { transform: translateY(0) translateX(0) rotate(-4deg); }
+  50%  { transform: translateY(-55vh) translateX(14px) rotate(4deg); }
+  100% { transform: translateY(-115vh) translateX(-6px) rotate(-3deg); }
+}
+
+/* ============================================================
+   RETRO — control guide + minigame frame
+   ============================================================ */
+.retro-panel {
+  border: 3px solid var(--accent-deep);
+  background: #16122a;
+  padding: var(--space-3);
+  text-align: left;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.45);
+  font-family: "Galmuri11", "Press Start 2P", monospace;
+}
+.retro-panel h4 {
+  font-family: "Press Start 2P", "Galmuri11", monospace; font-size: 0.7rem;
+  color: var(--accent-deep); text-align: center; margin-bottom: var(--space-2); text-shadow: 2px 2px 0 #000;
+}
+.retro-panel .ctrl { font-size: 0.8rem; line-height: 1.9; color: #e9e6ff; margin-bottom: 0.5rem; }
+.retro-panel .ctrl b { color: var(--accent); }
+.retro-panel .ctrl small { color: #a79fce; display: block; margin-left: 1rem; }
+.retro-panel .note { margin-top: var(--space-2); text-align: center; color: var(--accent-deep); font-size: 0.72rem; }
+
+.minigame-mount { margin-top: var(--space-3); min-height: 120px; }
+#miniGameContainer { width: 100%; }
+#miniGameContainer canvas { width: 100% !important; height: auto !important; image-rendering: pixelated; }
