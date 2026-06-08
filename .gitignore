@@ -96,6 +96,7 @@ credentials/
 .cache/
 .parcel-cache/
 .sass-cache/
+.codex-*/
 
 # Production files (keep source only)
 *.min.js

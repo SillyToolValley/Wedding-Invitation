@@ -3,7 +3,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
 import {
   getFirestore, collection, addDoc, serverTimestamp,
-  query, orderBy, onSnapshot
+  query, orderBy, onSnapshot, getDocs, limit
 } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
 let db;
@@ -37,4 +37,18 @@ export const addRsvp = data =>
 export const listenGuestbook = (cb) => {
   const q = query(collection(db, 'guestbook'), orderBy('ts', 'desc'));
   return onSnapshot(q, snap => cb(snap.docs.map(d => d.data())));
+};
+
+/* 4) 게임 리더보드 */
+export const addGameScore = (name, score) =>
+  addDoc(collection(db, 'gameScores'), {
+    name,
+    score,
+    ts: serverTimestamp()
+  });
+
+export const getGameScores = async () => {
+  const q = query(collection(db, 'gameScores'), orderBy('score', 'desc'), limit(100));
+  const snap = await getDocs(q);
+  return snap.docs.map(d => d.data());
 };

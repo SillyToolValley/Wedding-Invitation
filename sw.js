@@ -12,7 +12,7 @@ const urlsToCache = [
   '/Wedding-Invitation/js/fit-text.js',
   '/Wedding-Invitation/manifest.json',
   '/Wedding-Invitation/assets/main.jpg',
-  '/Wedding-Invitation/assets/main_retro.jpg'
+  '/Wedding-Invitation/assets/main_retro.png'
 ];
 
 self.addEventListener('install', function(event) {
