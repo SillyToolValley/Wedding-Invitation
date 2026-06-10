@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>권채린 ♥ 조영민 결혼합니다</title>
+  <meta name="description" content="2025년 9월 27일 토요일 오전 11시, 켄싱턴호텔 여의도 15층 그랜드볼룸. 권채린 ♥ 조영민의 결혼식에 초대합니다.">
+  <meta name="theme-color" content="#fbfaf7">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="권채린 ♥ 조영민, 결혼합니다">
+  <meta property="og:description" content="2025년 9월 27일 토요일 오전 11시 · 켄싱턴호텔 여의도">
+  <meta property="og:image" content="assets/main.jpg">
+
+  <link rel="icon" href="/Wedding-Invitation/assets/favicon-DHGkcwtE.ico" sizes="any">
+  <link rel="manifest" href="/Wedding-Invitation/assets/manifest-euArGws9.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Nanum+Myeongjo:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/quiple/galmuri/dist/galmuri.css">
+
+  <script type="module" crossorigin src="/Wedding-Invitation/assets/main-DBEMMrs8.js"></script>
+  <link rel="stylesheet" crossorigin href="/Wedding-Invitation/assets/main-BGz-N1tY.css">
+</head>
+<body id="top">
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="petals" id="petals" aria-hidden="true"></div>
+  <canvas class="retro-fx" id="retroFx" aria-hidden="true"></canvas>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="게임 테마 전환">게임 모드</button>
+
+  <main class="page">
+    <header class="hero">
+      <div class="hero__photo"><img id="heroPhoto" src="/Wedding-Invitation/assets/main-Cc4nWTYw.jpg" alt="신랑 신부 사진"></div>
+      <div class="hero__top">
+        <span class="hero__date-top" id="heroDateTop">2025. 09. 27</span>
+      </div>
+      <div class="hero__bottom" data-reveal>
+        <h1 class="hero__names" id="heroNames">권채린<span class="amp">&amp;</span>조영민</h1>
+        <p class="hero__sub" data-retro="♪ WEDDING INVITATION ♪">We're getting married</p>
+        <span class="hero__scroll" aria-hidden="true"></span>
+      </div>
+    </header>
+
+    <section class="section section--panel" id="invite">
+      <div class="section__head" data-reveal>
+        <span class="eyebrow" data-retro="STAGE 1 : INVITATION">Invitation</span>
+        <div class="divider"><img class="divider__rings" src="/Wedding-Invitation/assets/diamond-ring-B_3snGU0.png" alt="" aria-hidden="true"></div>
+      </div>
+      <p class="invite__msg" id="inviteMsg" data-reveal></p>
+      <div class="invite__families" id="inviteFamilies" data-reveal></div>
+    </section>
+
+    <section class="section section--tint" id="date">
+      <div class="section__head" data-reveal>
+        <span class="eyebrow" data-retro="STAGE INFO">The Date</span>
+        <h2 class="section-title" id="dateLabel"></h2>
+      </div>
+      <div class="cal" data-reveal>
+        <div class="cal__title" id="calTitle"></div>
+        <div class="cal__grid" id="calGrid"></div>
+      </div>
+      <div class="countdown" id="countdown" data-reveal></div>
+      <p class="countdown__note" id="countdownNote" data-reveal></p>
+    </section>
+
+    <section class="section section--panel" id="gallery">
+      <div class="section__head" data-reveal>
+        <span class="eyebrow" data-retro="MEMORY ALBUM">Gallery</span>
+        <h2 class="section-title" data-retro="OUR SAVE FILES">우리의 순간들</h2>
+      </div>
+      <div class="gallery__viewport" data-reveal>
+        <div class="gallery__track" id="galleryTrack"></div>
+        <button class="gallery__nav gallery__nav--prev" id="galPrev" aria-label="이전 사진">‹</button>
+        <button class="gallery__nav gallery__nav--next" id="galNext" aria-label="다음 사진">›</button>
+      </div>
+      <div class="gallery__dots" id="galleryDots"></div>
+    </section>
+
+    <section class="section section--tint" id="location">
+      <div class="section__head" data-reveal>
+        <span class="eyebrow" data-retro="GAME LOCATION">Location</span>
+        <h2 class="section-title" data-retro="WORLD MAP">오시는 길</h2>
+      </div>
+      <div class="venue-card" data-reveal>
+        <div class="venue-card__name" id="venueName"></div>
+        <div class="venue-card__addr" id="venueAddr"></div>
+        <div class="map-btns">
+          <button class="btn btn--primary btn--block" id="mapNaver" type="button">네이버 지도</button>
+          <button class="btn btn--ghost btn--block" id="mapKakao" type="button">카카오맵</button>
+        </div>
+      </div>
+      <div class="transit mt-3" id="transit"></div>
+    </section>
+
+    <section class="section section--panel" id="contact">
+      <div class="section__head" data-reveal>
+        <span class="eyebrow" data-retro="GAME MASTERS">Contact</span>
+        <h2 class="section-title" data-retro="CALL THE GAME MASTERS">혼주에게 연락하기</h2>
+      </div>
+      <div class="contact-grid" id="parentsContact"></div>
+    </section>
+
+    <section class="section section--tint" id="rsvp">
+      <div class="section__head" data-reveal>
+        <span class="eyebrow" data-retro="JOIN THE QUEST">R.S.V.P</span>
+        <h2 class="section-title" data-retro="JOIN THE WEDDING QUEST">참석 여부 알려주기</h2>
+      </div>
+      <p class="lead" data-reveal data-retro="PLAYER 1과 PLAYER 2의 평생 듀오 퀘스트에 함께해 주세요. 참석 여부를 미리 등록하면 준비에 큰 도움이 됩니다.">소중한 날, 함께해 주실 수 있나요? 참석 정보를 미리 알려주시면 정성껏 준비하겠습니다.</p>
+      <button class="btn btn--primary btn--lg mt-3" data-open="#rsvpModal" type="button" data-reveal data-retro="♥ RSVP NOW ♥">참석 의사 전하기</button>
+    </section>
+
+    <section class="section section--panel" id="guestbook">
+      <div class="section__head" data-reveal>
+        <span class="eyebrow" data-retro="GUEST BOOK">Guestbook</span>
+        <h2 class="section-title" data-retro="PLAYER MESSAGES">축하 메시지</h2>
+      </div>
+      <button class="btn btn--ghost" data-open="#gbModal" type="button" data-reveal data-retro="WRITE MESSAGE">메시지 남기기</button>
+      <div class="gb__list" id="gbList" data-reveal></div>
+      <div class="gb__pager">
+        <button class="pager-btn" id="gbPrev" aria-label="이전">‹</button>
+        <span id="gbPageInfo">1 / 1</span>
+        <button class="pager-btn" id="gbNext" aria-label="다음">›</button>
+      </div>
+    </section>
+
+    <section class="section section--tint" id="accounts-sec">
+      <div class="section__head" data-reveal>
+        <span class="eyebrow" data-retro="SUPPORT PLAYERS">With Heart</span>
+        <h2 class="section-title" data-retro="ITEM · 마음 전하실 곳">마음 전하실 곳</h2>
+      </div>
+      <p class="accounts-note text-soft mt-2" data-reveal>참석이 어려우신 분들을 위해 계좌번호를 안내드립니다. 전해주시는 따뜻한 마음, 소중히 간직하겠습니다.</p>
+      <div class="accordion mt-3" id="accounts" data-reveal></div>
+    </section>
+
+    <section class="section section--panel" id="share">
+      <div class="map-btns" data-reveal>
+        <button class="btn btn--primary btn--block" data-share="native" type="button" data-retro="KAKAO SHARE">청첩장 공유하기</button>
+        <button class="btn btn--ghost btn--block" data-share="link" type="button" data-retro="COPY LINK">링크 복사</button>
+      </div>
+    </section>
+
+    <section class="section retro-only" id="minigame">
+      <div class="section__head">
+        <span class="eyebrow">Bonus Stage</span>
+        <h2 class="section-title">WEDDING RUNNER</h2>
+      </div>
+      <div class="retro-panel">
+        <h4>[ 조작법 ]</h4>
+        <div class="ctrl"><b>Tag (Q)</b> : 캐릭터를 교체합니다.</div>
+        <div class="ctrl"><b>Jump (SPACE / ↑)</b> : 점프 (2단 점프 가능)</div>
+        <div class="ctrl"><b>Slam (K / ↓)</b> : 공중에서 내려찍기<small>잠시 무적 상태가 되고 근처 지뢰를 파괴합니다.</small></div>
+        <div class="ctrl"><b>Atk (J)</b> : 공격<small>신랑은 칼로 지뢰와 공중 드론을 파괴합니다.</small><small>신부는 머신건으로 멀리 있는 드론을 공격합니다.</small></div>
+        <div class="note">모바일은 화면 버튼으로 조작</div>
+      </div>
+      <div class="minigame-mount"><div id="miniGameContainer"></div></div>
+    </section>
+
+    <footer class="closing">
+      <p class="closing__msg" id="closingMsg" data-reveal></p>
+      <div class="closing__names" id="closingNames" data-reveal></div>
+      <div class="closing__date" id="closingDate" data-reveal></div>
+      <p class="closing__date closing__retro-note retro-only">♪ STAGE CLEAR ♪<br>SEE YOU AT THE WEDDING!</p>
+    </footer>
+  </main>
+
+  <nav class="appbar" id="appbar" aria-label="빠른 이동">
+    <a class="appbar__btn" href="#top" data-retro="HOME">홈</a>
+    <a class="appbar__btn" href="#date" data-retro="INFO">일정</a>
+    <a class="appbar__btn" href="#location" data-retro="MAP">위치</a>
+    <a class="appbar__btn" href="#guestbook" data-retro="BOARD">방명록</a>
+    <button class="appbar__btn appbar__btn--accent" data-open="#rsvpModal" type="button" data-retro="JOIN">참석</button>
+  </nav>
+
+  <div class="modal" id="rsvpModal" role="dialog" aria-modal="true" aria-label="참석 여부">
+    <div class="modal__scrim"></div>
+    <div class="modal__panel">
+      <button class="modal__close" aria-label="닫기">×</button>
+      <h3 class="modal__title">참석 여부 알려주기</h3>
+      <form id="rsvpForm">
+        <div class="field"><label>성함</label><input name="name" type="text" placeholder="성함을 입력해 주세요" required></div>
+        <div class="field"><label>구분</label>
+          <select name="side"><option value="신랑측">신랑측 하객</option><option value="신부측">신부측 하객</option></select>
+        </div>
+        <div class="field"><label>참석 여부</label>
+          <select name="attend"><option value="참석">참석합니다</option><option value="미정">아직 미정입니다</option><option value="불참">참석이 어렵습니다</option></select>
+        </div>
+        <div class="field-row">
+          <div class="field"><label>성인 인원</label><input name="adults" type="number" min="0" value="1"></div>
+          <div class="field"><label>아동 인원</label><input name="kids" type="number" min="0" value="0"></div>
+        </div>
+        <div class="field"><label>식사 여부</label>
+          <select name="meal"><option value="예정">식사 예정</option><option value="안함">식사 안 함</option></select>
+        </div>
+        <button class="btn btn--primary btn--block btn--lg" type="submit">전달하기</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="gbModal" role="dialog" aria-modal="true" aria-label="축하 메시지 작성">
+    <div class="modal__scrim"></div>
+    <div class="modal__panel">
+      <button class="modal__close" aria-label="닫기">×</button>
+      <h3 class="modal__title">축하 메시지 남기기</h3>
+      <form id="gbForm">
+        <div class="field"><label>이름</label><input name="name" type="text" placeholder="이름" required></div>
+        <div class="field"><label>메시지</label><textarea name="msg" placeholder="축하의 마음을 전해주세요" required></textarea></div>
+        <button class="btn btn--primary btn--block btn--lg" type="submit">메시지 등록</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="사진 크게 보기">
+    <button class="lightbox__close" id="lightboxClose" aria-label="닫기">×</button>
+    <img id="lightboxImg" src="" alt="확대 사진">
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>
