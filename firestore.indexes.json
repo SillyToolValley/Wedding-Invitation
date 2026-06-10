@@ -1,0 +1,25 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "guestbook",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "ts",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "rsvp",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "phone",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

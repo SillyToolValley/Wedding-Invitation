@@ -1,0 +1,244 @@
+/* ======================================
+   Wedding Runner Game World UI 경계 수정
+   ====================================== */
+
+/* 미니게임 섹션 전체 */
+.minigame-section {
+  width: 100% !important;
+  max-width: 480px !important;
+  margin: 0 auto !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+/* 미니게임 컨테이너 */
+#miniGameContainer {
+  width: 100% !important;
+  max-width: 440px !important;
+  margin: 0 auto !important;
+  padding: 10px !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+}
+
+/* Game Screen Container - 게임 화면 영역 (3:4 비율) */
+.game-screen-container {
+  width: 100% !important;
+  max-width: 360px !important;  /* 3:4 비율로 조정 */
+  height: auto !important;
+  margin: 0 auto !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+/* Game Panel - 실제 게임 UI 패널 */
+.game-panel {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 250px !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  margin: 0 auto !important;
+  overflow: hidden !important;
+}
+
+/* Game Panel Content - 패널 내부 콘텐츠 */
+.game-panel-content {
+  width: 100% !important;
+  padding: 30px 20px !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 200px !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Game World 타이틀 */
+.game-panel-content h2 {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 0 20px 0 !important;
+  padding: 0 10px !important;
+  text-align: center !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: clamp(12px, 3vw, 18px) !important;
+  line-height: 1.5 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  box-sizing: border-box !important;
+  color: var(--pixel-yellow, #ffde00) !important;
+}
+
+/* Game Start Button */
+.game-panel-content button,
+#gameStartBtn {
+  display: block !important;
+  width: auto !important;
+  max-width: 200px !important;
+  margin: 10px auto !important;
+  padding: 12px 24px !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: clamp(9px, 2vw, 12px) !important;
+  line-height: 1.5 !important;
+  background: var(--pixel-dark, #0a0a0a) !important;
+  border: 3px solid var(--pixel-pink, #ff006e) !important;
+  color: var(--pixel-yellow, #ffde00) !important;
+  cursor: pointer !important;
+  position: relative !important;
+  z-index: 2 !important;
+  box-shadow: 3px 3px 0 var(--pixel-pink, #ff006e) !important;
+  transition: all 0.1s !important;
+  white-space: nowrap !important;
+  text-transform: uppercase !important;
+}
+
+.game-panel-content button:hover,
+#gameStartBtn:hover {
+  background: var(--pixel-pink, #ff006e) !important;
+  color: white !important;
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 5px 5px 0 var(--pixel-yellow, #ffde00) !important;
+}
+
+/* Game Canvas */
+#gameCanvas {
+  width: 100% !important;
+  max-width: 400px !important;
+  height: auto !important;
+  aspect-ratio: 4/3 !important;
+  margin: 0 auto !important;
+  display: block !important;
+  border: 3px solid var(--pixel-pink, #ff006e) !important;
+  box-sizing: border-box !important;
+  background: var(--pixel-dark, #0a0a0a) !important;
+}
+
+/* Leaderboard Section */
+.leaderboard-section {
+  width: 100% !important;
+  max-width: 420px !important;
+  margin: 20px auto !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+}
+
+.leaderboard-title {
+  width: 100% !important;
+  text-align: center !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: clamp(10px, 2.5vw, 14px) !important;
+  margin-bottom: 15px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  padding: 0 10px !important;
+  box-sizing: border-box !important;
+  color: var(--pixel-yellow, #ffde00) !important;
+}
+
+/* Score Display */
+.score-display {
+  width: 100% !important;
+  text-align: center !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: clamp(8px, 2vw, 12px) !important;
+  margin: 10px 0 !important;
+  color: var(--pixel-cyan, #00ffff) !important;
+}
+
+/* 반응형 조정 */
+@media (max-width: 480px) {
+  .minigame-section {
+    padding: 15px !important;
+  }
+  
+  #miniGameContainer {
+    padding: 5px !important;
+  }
+  
+  .game-panel-content {
+    padding: 20px 15px !important;
+    min-height: 180px !important;
+  }
+  
+  .game-panel-content h2 {
+    font-size: clamp(10px, 3.5vw, 16px) !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .game-panel-content button,
+  #gameStartBtn {
+    padding: 10px 20px !important;
+    font-size: clamp(8px, 2.5vw, 11px) !important;
+  }
+  
+  #gameCanvas {
+    max-width: 350px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .game-panel-content h2 {
+    font-size: clamp(9px, 4vw, 14px) !important;
+  }
+  
+  .game-panel-content button,
+  #gameStartBtn {
+    padding: 8px 16px !important;
+    font-size: clamp(7px, 3vw, 10px) !important;
+    max-width: 180px !important;
+  }
+  
+  #gameCanvas {
+    max-width: 300px !important;
+  }
+}
+
+/* 큰 화면에서도 제한 유지 */
+@media (min-width: 768px) {
+  .minigame-section {
+    padding: 30px !important;
+  }
+  
+  .game-panel-content h2 {
+    font-size: 18px !important;
+  }
+  
+  .game-panel-content button,
+  #gameStartBtn {
+    font-size: 12px !important;
+    padding: 14px 28px !important;
+  }
+}
+
+/* 게임 실행 중 스타일 */
+.game-running .game-panel-content {
+  padding: 10px !important;
+}
+
+.game-running #gameCanvas {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* 디버그용 (필요시 활성화) */
+/*
+.minigame-section {
+  outline: 2px solid red !important;
+}
+
+.game-screen-container {
+  outline: 2px solid blue !important;
+}
+
+.game-panel {
+  outline: 2px solid green !important;
+}
+*/

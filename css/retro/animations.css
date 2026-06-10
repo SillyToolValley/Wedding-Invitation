@@ -1,0 +1,191 @@
+/* ====================================
+   RETRO THEME - ANIMATIONS & EFFECTS
+   ==================================== */
+
+/* Fireworks */
+#fireworks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.firework {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--pixel-yellow);
+  animation: firework-up 1s ease-out forwards;
+}
+
+@keyframes firework-up {
+  0% {
+    bottom: 0;
+    opacity: 1;
+  }
+  100% {
+    bottom: 70%;
+    opacity: 0;
+  }
+}
+
+.firework::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: -50px;
+  top: -50px;
+  background: radial-gradient(circle, transparent 40%, var(--pixel-pink) 50%, transparent 60%);
+  opacity: 0;
+  animation: explode 0.5s ease-out 0.8s forwards;
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* Floating Hearts */
+#floatingHearts {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 99;
+}
+
+.float-heart {
+  position: absolute;
+  bottom: -20px;
+  width: 20px;
+  height: 20px;
+  animation: floatUp 4s ease-in-out forwards;
+}
+
+.float-heart::before {
+  content: '♥';
+  color: var(--pixel-pink);
+  font-size: 20px;
+  text-shadow: 0 0 10px rgba(255, 0, 110, 0.5);
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 1;
+    bottom: -20px;
+    transform: translateX(0) scale(1);
+  }
+  25% {
+    transform: translateX(-20px) scale(1.2);
+  }
+  50% {
+    transform: translateX(20px) scale(1);
+  }
+  75% {
+    transform: translateX(-10px) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    bottom: 100%;
+    transform: translateX(0) scale(0.5);
+  }
+}
+
+/* Pixel Balloons */
+.pixel-balloon {
+  position: absolute;
+  bottom: -50px;
+  width: 30px;
+  height: 40px;
+  animation: balloon-float 8s ease-in-out forwards;
+  z-index: 50;
+}
+
+.pixel-balloon::before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: currentColor;
+  box-shadow:
+    6px 0, 12px 0, 18px 0,
+    0 6px, 6px 6px, 12px 6px, 18px 6px, 24px 6px,
+    0 12px, 6px 12px, 12px 12px, 18px 12px, 24px 12px,
+    0 18px, 6px 18px, 12px 18px, 18px 18px, 24px 18px,
+    6px 24px, 12px 24px, 18px 24px,
+    12px 30px, 12px 36px;
+}
+
+@keyframes balloon-float {
+  0% {
+    bottom: -50px;
+    transform: translateX(0) rotate(-5deg);
+  }
+  25% {
+    transform: translateX(30px) rotate(5deg);
+  }
+  50% {
+    transform: translateX(-20px) rotate(-3deg);
+  }
+  75% {
+    transform: translateX(15px) rotate(3deg);
+  }
+  100% {
+    bottom: 110%;
+    transform: translateX(0) rotate(0);
+    opacity: 0;
+  }
+}
+
+/* CRT Effect */
+.retro-active::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Glitch Effect */
+@keyframes glitch {
+  0%, 100% {
+    text-shadow: 
+      2px 2px 0 var(--pixel-pink),
+      -2px -2px 0 var(--pixel-cyan);
+  }
+  25% {
+    text-shadow: 
+      -2px 2px 0 var(--pixel-cyan),
+      2px -2px 0 var(--pixel-pink);
+  }
+  50% {
+    text-shadow: 
+      2px -2px 0 var(--pixel-yellow),
+      -2px 2px 0 var(--pixel-purple);
+  }
+  75% {
+    text-shadow: 
+      -2px -2px 0 var(--pixel-purple),
+      2px 2px 0 var(--pixel-yellow);
+  }
+}
+
+.glitch {
+  animation: glitch 0.3s infinite;
+}

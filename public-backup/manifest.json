@@ -1,0 +1,92 @@
+{
+  "name": "권채린 ❤️ 조영민 청첩장",
+  "short_name": "청첩장",
+  "description": "2025년 9월 27일, 우리 결혼합니다",
+  "start_url": "/Wedding-Invitation/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff9a9e",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/Wedding-Invitation/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Wedding-Invitation/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Wedding-Invitation/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Wedding-Invitation/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Wedding-Invitation/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Wedding-Invitation/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Wedding-Invitation/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Wedding-Invitation/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["lifestyle", "social"],
+  "lang": "ko-KR",
+  "dir": "ltr",
+  "scope": "/Wedding-Invitation/",
+  "shortcuts": [
+    {
+      "name": "방명록 작성",
+      "short_name": "방명록",
+      "description": "축하 메시지 남기기",
+      "url": "/Wedding-Invitation/#guestbook",
+      "icons": [
+        {
+          "src": "/Wedding-Invitation/icons/guestbook-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "오시는 길",
+      "short_name": "지도",
+      "description": "결혼식장 위치 확인",
+      "url": "/Wedding-Invitation/#map",
+      "icons": [
+        {
+          "src": "/Wedding-Invitation/icons/map-96x96.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": []
+}

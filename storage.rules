@@ -1,0 +1,27 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // 웨딩 사진 업로드 규칙
+    match /wedding-photos/{allPaths=**} {
+      // 누구나 읽기 가능
+      allow read: if true;
+      
+      // 업로드 제한: 이미지 파일만, 10MB 이하
+      allow write: if false;
+      
+      // 삭제는 금지
+      allow delete: if false;
+    }
+    
+    // 썸네일 이미지 (자동 생성)
+    match /thumbnails/{allPaths=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+    
+    // 기타 파일 업로드 금지
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

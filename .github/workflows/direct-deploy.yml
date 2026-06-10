@@ -1,0 +1,64 @@
+name: Direct Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Create gh-pages branch if not exists
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Check if gh-pages branch exists
+          if ! git ls-remote --heads origin gh-pages | grep gh-pages; then
+            git checkout --orphan gh-pages
+            git rm -rf .
+            echo "GitHub Pages branch created"
+          else
+            git fetch origin gh-pages
+            git checkout gh-pages
+            git pull origin gh-pages || true
+          fi
+
+      - name: Copy files from main branch
+        run: |
+          # Checkout main branch files to temp directory
+          git checkout main -- .
+          
+          # Remove unnecessary files for deployment
+          rm -rf .github
+          rm -rf src
+          rm -rf node_modules
+          rm -f .gitignore
+          rm -f .env*
+          rm -f *.json
+          rm -f *.yml
+          rm -f *.yaml
+          rm -f *.md
+          rm -f *.rules
+          rm -f .*rc
+          
+          # Keep only necessary files
+          # index.html, styles.css, js/, assets/, public/
+
+      - name: Commit and push to gh-pages
+        run: |
+          git add -A
+          git diff --staged --quiet || git commit -m "Deploy to GitHub Pages - $(date '+%Y-%m-%d %H:%M:%S')"
+          git push origin gh-pages --force

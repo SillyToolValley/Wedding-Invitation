@@ -1,0 +1,5 @@
+{
+  "version": "2025-01-09-3",
+  "lastUpdated": "2025-01-09T00:02:00Z",
+  "description": "Fixed retro theme effects duplication and memory leak"
+}

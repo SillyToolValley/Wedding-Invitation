@@ -1,0 +1,78 @@
+/* ====================================
+   MODERN THEME - HEADER & TITLE
+   ==================================== */
+
+/* Title Section */
+.modern-section .title-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--modern-white);
+  position: relative;
+}
+
+.modern-section .wedding-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--modern-rose);
+  margin-bottom: 20px;
+  letter-spacing: 0.1em;
+  animation: fadeInDown 1s ease;
+}
+
+.modern-section .wedding-subtitle {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: var(--modern-gray);
+  letter-spacing: 0.2em;
+  animation: fadeInUp 1s ease 0.3s both;
+}
+
+/* Hero Image */
+.modern-section .hero-image {
+  width: 100%;
+  max-width: 600px;
+  margin: 40px auto;
+  position: relative;
+  animation: fadeIn 1.5s ease;
+}
+
+.modern-section .hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: var(--modern-shadow);
+}
+
+/* Game Mode Button */
+.game-mode-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #ff006e, #ff4590);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  z-index: 10000;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 0, 110, 0.4);
+  transition: all 0.3s ease;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.game-mode-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 0, 110, 0.6);
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 4px 15px rgba(255, 0, 110, 0.4);
+  }
+  50% { 
+    box-shadow: 0 4px 25px rgba(255, 0, 110, 0.7);
+  }
+}

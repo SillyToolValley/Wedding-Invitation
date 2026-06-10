@@ -1,0 +1,105 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.production
+
+# Build output
+dist/
+dist-ssr/
+build/
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swp
+*~
+
+# Firebase
+.firebase/
+.firebaserc
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+database-debug.log
+pubsub-debug.log
+storage.rules.compiled
+
+# Testing
+coverage/
+*.lcov
+.nyc_output/
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+
+# Logs
+logs/
+*.log
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# Package manager
+yarn.lock
+pnpm-lock.yaml
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# PWA
+sw.js.map
+workbox-*.js
+workbox-*.js.map
+
+# Backup files
+*.backup
+*.bak
+
+# Sensitive data
+*.key
+*.pem
+*.p12
+*.crt
+*.cer
+secrets/
+credentials/
+
+# User-specific files
+*.user
+*.userosscache
+*.sln.docstates
+
+# Cache
+.cache/
+.parcel-cache/
+.sass-cache/
+.codex-*/
+
+# Production files (keep source only)
+*.min.js
+*.min.css
+!src/**/*.min.js
+!src/**/*.min.css

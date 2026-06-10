@@ -1,0 +1,78 @@
+/* ====================================
+   MODERN THEME - CALENDAR
+   ==================================== */
+
+.modern-section .calendar {
+  background: var(--modern-white);
+  padding: 40px 20px;
+  margin: 40px auto;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: var(--modern-shadow);
+}
+
+.modern-section .calendar h3 {
+  text-align: center;
+  color: var(--modern-rose);
+  margin-bottom: 30px;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.modern-section .calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modern-section .calendar-header {
+  text-align: center;
+  font-weight: 600;
+  color: var(--modern-dark);
+  padding: 10px 0;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+}
+
+.modern-section .calendar-header:first-child {
+  color: #ff4444;
+}
+
+.modern-section .calendar-header:last-child {
+  color: #4444ff;
+}
+
+.modern-section .calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.modern-section .calendar-day:hover {
+  background: var(--modern-light-gray);
+  transform: scale(1.05);
+}
+
+.modern-section .calendar-day.wedding-day {
+  background: var(--modern-rose);
+  color: white;
+  font-weight: 700;
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+.modern-section .calendar-day.wedding-day::after {
+  content: '💒';
+  position: absolute;
+  top: -10px;
+  right: -5px;
+  font-size: 0.8em;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}

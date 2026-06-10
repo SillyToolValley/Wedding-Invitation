@@ -1,0 +1,105 @@
+/* ====================================
+   RETRO THEME - BASE STYLES
+   ==================================== */
+
+/* Import Pixel Font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+/* Color Palette */
+:root {
+  --pixel-dark: #0a0a0a;
+  --pixel-pink: #ff006e;
+  --pixel-cyan: #00ffff;
+  --pixel-yellow: #ffd54a;
+  --pixel-green: #00ff00;
+  --pixel-purple: #ff00ff;
+  --pixel-white: #ffffff;
+  --pixel-gray: #808080;
+}
+
+/* Retro Theme Active */
+.retro-active {
+  font-family: 'DotGothic16', monospace !important;
+  background: var(--pixel-dark) !important;
+  color: var(--pixel-white) !important;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Scanlines Effect */
+.retro-active::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 1;
+  animation: scanlines 8s linear infinite;
+}
+
+@keyframes scanlines {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(10px); }
+}
+
+/* Container */
+.retro-section .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Typography */
+.retro-section {
+  font-family: 'DotGothic16', monospace !important;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.retro-section h1,
+.retro-section h2,
+.retro-section h3 {
+  font-family: 'Press Start 2P', cursive !important;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.retro-section h1 {
+  font-size: clamp(18px, 4vw, 32px);
+  color: var(--pixel-yellow);
+  text-shadow: 3px 3px 0 var(--pixel-pink);
+}
+
+.retro-section h2 {
+  font-size: clamp(14px, 3vw, 24px);
+  color: var(--pixel-cyan);
+  text-shadow: 2px 2px 0 var(--pixel-purple);
+}
+
+.retro-section h3 {
+  font-size: clamp(12px, 2.5vw, 20px);
+  color: var(--pixel-pink);
+  text-shadow: 2px 2px 0 var(--pixel-cyan);
+}
+
+.retro-section p {
+  line-height: 1.8;
+  color: var(--pixel-white);
+  font-size: clamp(18px, 3vw, 24px);
+}
+
+.retro-section strong {
+  color: var(--pixel-yellow);
+  text-shadow: 1px 1px 0 var(--pixel-pink);
+}

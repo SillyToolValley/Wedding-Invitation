@@ -1,0 +1,146 @@
+/* ======================================
+   Retro 테마 공유 버튼 수정
+   ====================================== */
+
+/* Retro 공유 버튼 컨테이너 */
+.retro-section.share-buttons {
+  width: 100% !important;
+  max-width: 480px !important;
+  padding: 30px 20px !important;
+  box-sizing: border-box !important;
+  background: var(--pixel-dark, #0a0a0a) !important;
+  text-align: center !important;
+}
+
+.retro-section.share-buttons > div {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 15px !important;
+  width: 100% !important;
+  padding: 0 10px !important;
+  box-sizing: border-box !important;
+}
+
+/* Retro 공유 버튼 스타일 */
+.retro-section .share-btn {
+  width: 100% !important;
+  max-width: 280px !important;
+  padding: 15px 20px !important;
+  background: var(--pixel-dark, #0a0a0a) !important;
+  border: 3px solid var(--pixel-pink, #ff006e) !important;
+  color: var(--pixel-yellow, #ffde00) !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: 10px !important;
+  line-height: 1.5 !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  position: relative !important;
+  transition: all 0.1s !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  box-sizing: border-box !important;
+  display: block !important;
+  margin: 0 auto !important;
+  box-shadow: 
+    3px 3px 0 var(--pixel-pink, #ff006e),
+    6px 6px 0 rgba(255, 0, 110, 0.3) !important;
+}
+
+/* Retro 버튼 호버 효과 */
+.retro-section .share-btn:hover {
+  background: var(--pixel-pink, #ff006e) !important;
+  color: white !important;
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 
+    5px 5px 0 var(--pixel-yellow, #ffde00),
+    8px 8px 0 rgba(255, 222, 0, 0.3) !important;
+}
+
+.retro-section .share-btn:active {
+  transform: translate(0, 0) !important;
+  box-shadow: 
+    1px 1px 0 var(--pixel-pink, #ff006e),
+    2px 2px 0 rgba(255, 0, 110, 0.3) !important;
+}
+
+/* 작은 화면에서 폰트 크기 조정 */
+@media (max-width: 480px) {
+  .retro-section .share-btn {
+    font-size: 9px !important;
+    padding: 12px 15px !important;
+    max-width: 260px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .retro-section .share-btn {
+    font-size: 8px !important;
+    padding: 10px 12px !important;
+    max-width: 240px !important;
+  }
+}
+
+/* 큰 화면에서도 세로 배치 유지 (Retro 스타일) */
+@media (min-width: 768px) {
+  .retro-section.share-buttons > div {
+    flex-direction: column !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+  }
+  
+  .retro-section .share-btn {
+    width: 100% !important;
+    max-width: 320px !important;
+    font-size: 11px !important;
+  }
+}
+
+/* 아주 작은 화면 */
+@media (max-width: 320px) {
+  .retro-section .share-btn {
+    font-size: 7px !important;
+    padding: 10px !important;
+    max-width: 220px !important;
+  }
+}
+
+/* 픽셀 애니메이션 효과 */
+@keyframes pixelPulse {
+  0%, 100% { 
+    box-shadow: 
+      3px 3px 0 var(--pixel-pink),
+      6px 6px 0 rgba(255, 0, 110, 0.3);
+  }
+  50% { 
+    box-shadow: 
+      4px 4px 0 var(--pixel-pink),
+      7px 7px 0 rgba(255, 0, 110, 0.4);
+  }
+}
+
+.retro-section .share-btn {
+  animation: pixelPulse 2s infinite ease-in-out !important;
+}
+
+.retro-section .share-btn:hover {
+  animation: none !important;
+}
+
+/* 이모지 숨기고 텍스트만 표시 (선택사항) */
+/*
+.retro-section .share-btn {
+  text-indent: -9999px;
+  position: relative;
+}
+
+.retro-section .share-btn::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-indent: 0;
+}
+*/

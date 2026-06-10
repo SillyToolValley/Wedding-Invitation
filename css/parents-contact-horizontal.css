@@ -1,0 +1,300 @@
+/* ======================================
+   혼주 연락처 - 신랑/신부측별 하나의 박스에 가로 레이아웃
+   ====================================== */
+
+/* Modern 혼주 연락처 - 래퍼 스타일 */
+.modern-section .parent-contact-wrapper {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-around !important;
+  align-items: flex-start !important;
+  gap: 20px !important;
+  padding: 10px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Modern 각 부모님 카드 - 개별 테두리 추가 */
+.modern-section .parent-contact-row {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 15px 10px !important;
+  margin: 0 !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  border: 2px solid rgba(255, 105, 180, 0.3) !important;
+  border-radius: 10px !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 2px 8px rgba(255, 105, 180, 0.1) !important;
+}
+
+/* 부모님 정보 영역 */
+.modern-section .parent-info {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 10px !important;
+}
+
+/* 부모님 타이틀 (아버지/어머니) */
+.modern-section .parent-title {
+  font-size: clamp(9px, 2vw, 12px) !important;
+  color: var(--modern-gray, #666) !important;
+  margin-bottom: 6px !important;
+  white-space: nowrap !important;
+}
+
+/* 부모님 성함 */
+.modern-section .parent-name {
+  font-size: clamp(13px, 2.8vw, 16px) !important;
+  font-weight: bold !important;
+  color: var(--modern-pink, #ff69b4) !important;
+  white-space: nowrap !important;
+  margin-bottom: 10px !important;
+}
+
+/* 연락 버튼들 */
+.modern-section .parent-buttons {
+  display: flex !important;
+  gap: 5px !important;
+  justify-content: center !important;
+}
+
+.modern-section .contact-btn {
+  padding: 4px 8px !important;
+  font-size: 14px !important;  /* 이모지 크기 고정 */
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  border-radius: 12px !important;
+  background: white !important;
+  color: var(--modern-pink, #ff69b4) !important;
+  border: 1.5px solid var(--modern-pink, #ff69b4) !important;
+  cursor: pointer !important;
+  transition: all 0.3s !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  min-width: 0 !important;
+  flex-shrink: 1 !important;
+}
+
+.modern-section .contact-btn:hover {
+  background: var(--modern-pink, #ff69b4) !important;
+  color: white !important;
+  transform: scale(1.05) !important;
+}
+
+/* Retro 혼주 연락처 - 래퍼 스타일 */
+.retro-section .parent-contact-wrapper,
+.retro-section .game-master-buttons {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-around !important;
+  align-items: flex-start !important;
+  gap: 15px !important;
+  padding: 5px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Retro 각 부모님 카드 - 개별 테두리 추가 */
+.retro-section .parent-contact-row {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 12px 8px !important;
+  margin: 0 !important;
+  flex: 1 !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  border: 2px solid var(--pixel-pink, #ff006e) !important;
+  background: rgba(10, 10, 10, 0.7) !important;
+  box-shadow: 3px 3px 0 rgba(255, 0, 110, 0.3) !important;
+}
+
+/* Retro 부모님 정보 영역 */
+.retro-section .parent-info {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 8px !important;
+}
+
+/* Retro 부모님 타이틀 */
+.retro-section .retro-parent-title {
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: clamp(6px, 1.5vw, 9px) !important;
+  color: var(--pixel-yellow, #ffde00) !important;
+  margin-bottom: 6px !important;
+  white-space: nowrap !important;
+  text-transform: uppercase !important;
+}
+
+/* Retro 부모님 성함 */
+.retro-section .parent-name {
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: clamp(10px, 2.5vw, 14px) !important;
+  color: var(--pixel-cyan, #00ffff) !important;
+  white-space: nowrap !important;
+  margin-bottom: 8px !important;
+  text-shadow: 2px 2px 0 var(--pixel-pink, #ff006e) !important;
+}
+
+/* Retro 연락 버튼들 */
+.retro-section .parent-buttons {
+  display: flex !important;
+  gap: 6px !important;
+  justify-content: center !important;
+}
+
+.retro-section .retro-contact-btn {
+  padding: 6px 8px !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: clamp(6px, 1.5vw, 8px) !important;
+  background: var(--pixel-dark, #0a0a0a) !important;
+  border: 2px solid var(--pixel-pink, #ff006e) !important;
+  color: var(--pixel-yellow, #ffde00) !important;
+  cursor: pointer !important;
+  transition: all 0.1s !important;
+  white-space: nowrap !important;
+}
+
+.retro-section .retro-contact-btn:hover {
+  background: var(--pixel-pink, #ff006e) !important;
+  color: white !important;
+  transform: scale(1.1) !important;
+}
+
+/* 작은 화면에서도 가로 배치 유지 - 스케일 조정 */
+@media (max-width: 480px) {
+  .modern-section .parent-contact-wrapper,
+  .retro-section .parent-contact-wrapper,
+  .retro-section .game-master-buttons {
+    flex-direction: row !important;  /* 가로 유지 */
+    gap: 8px !important;
+    padding: 5px !important;
+  }
+  
+  .modern-section .parent-contact-row,
+  .retro-section .parent-contact-row {
+    flex: 1 !important;
+    min-width: 0 !important;
+    padding: 10px 5px !important;
+  }
+  
+  /* 폰트 크기 더 축소 */
+  .modern-section .parent-title {
+    font-size: clamp(8px, 2vw, 10px) !important;
+  }
+  
+  .modern-section .parent-name {
+    font-size: clamp(11px, 2.5vw, 14px) !important;
+  }
+  
+  .modern-section .contact-btn {
+    padding: 3px 5px !important;
+    font-size: 12px !important;  /* 이모지 크기 고정 */
+  }
+  
+  .retro-section .retro-parent-title {
+    font-size: clamp(5px, 1.3vw, 7px) !important;
+  }
+  
+  .retro-section .parent-name {
+    font-size: clamp(8px, 2.2vw, 11px) !important;
+  }
+  
+  .retro-section .retro-contact-btn {
+    padding: 5px 6px !important;
+    font-size: clamp(5px, 1.3vw, 7px) !important;
+  }
+}
+
+/* 아주 작은 화면에서도 가로 유지 */
+@media (max-width: 360px) {
+  .modern-section .parent-contact-wrapper,
+  .retro-section .parent-contact-wrapper,
+  .retro-section .game-master-buttons {
+    flex-direction: row !important;
+    gap: 5px !important;
+  }
+  
+  .modern-section .parent-contact-row,
+  .retro-section .parent-contact-row {
+    padding: 8px 3px !important;
+  }
+  
+  /* 더 작은 폰트 */
+  .modern-section .parent-title {
+    font-size: 7px !important;
+    margin-bottom: 3px !important;
+  }
+  
+  .modern-section .parent-name {
+    font-size: clamp(9px, 3vw, 12px) !important;
+    margin-bottom: 5px !important;
+  }
+  
+  .modern-section .contact-btn {
+    padding: 3px 4px !important;
+    font-size: 10px !important;  /* 이모지 최소 크기 */
+  }
+  
+  .modern-section .parent-buttons {
+    gap: 3px !important;
+  }
+  
+  .retro-section .retro-parent-title {
+    font-size: 5px !important;
+    margin-bottom: 3px !important;
+  }
+  
+  .retro-section .parent-name {
+    font-size: clamp(7px, 2.5vw, 10px) !important;
+    margin-bottom: 5px !important;
+  }
+  
+  .retro-section .retro-contact-btn {
+    padding: 4px 5px !important;
+    font-size: 5px !important;
+  }
+  
+  .retro-section .parent-buttons {
+    gap: 3px !important;
+  }
+}
+
+/* 큰 화면에서도 적절한 크기 유지 */
+@media (min-width: 768px) {
+  .modern-section .parent-contact-wrapper,
+  .retro-section .parent-contact-wrapper,
+  .retro-section .game-master-buttons {
+    max-width: 500px !important;
+    margin: 0 auto !important;
+  }
+  
+  .modern-section .parent-name {
+    font-size: 16px !important;
+  }
+  
+  .modern-section .contact-btn {
+    padding: 5px 10px !important;
+    font-size: 14px !important;  /* 큰 화면에서 이모지 크기 */
+  }
+  
+  .retro-section .parent-name {
+    font-size: 14px !important;
+  }
+  
+  .retro-section .retro-contact-btn {
+    padding: 8px 10px !important;
+    font-size: 8px !important;
+  }
+}

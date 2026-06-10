@@ -1,0 +1,217 @@
+/* ======================================
+   계좌 정보 섹션 수정 및 개선
+   ====================================== */
+
+/* 모던 테마 계좌 섹션 정렬 수정 */
+.modern-section .account-section {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modern-section .account-group {
+  margin-bottom: 40px;
+  background: var(--modern-white, #fff);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.modern-section .account-group h4 {
+  color: var(--modern-rose, #ff006e);
+  margin-bottom: 20px;
+  font-family: 'Noto Serif KR', serif;
+  text-align: center;
+  font-size: 18px !important;
+}
+
+.modern-section .account-item {
+  padding: 20px;
+  margin-bottom: 15px;
+  background: var(--modern-light-gray, #f9f9f9);
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* 계좌번호 복사 버튼 추가 */
+.account-item .copy-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: var(--modern-pink, #ff006e);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+.account-item .copy-btn:hover {
+  background: #e6005c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.account-item .copy-btn:active {
+  transform: translateY(0);
+}
+
+.account-item .copy-btn.copied {
+  background: #4CAF50;
+}
+
+.account-item .copy-btn.copied::after {
+  content: ' ✓';
+}
+
+/* 계좌 정보 레이아웃 개선 */
+.account-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.account-info-row:last-child {
+  border-bottom: none;
+}
+
+.account-label {
+  font-weight: 600;
+  color: #333;
+  flex: 0 0 80px;
+}
+
+.account-value {
+  flex: 1;
+  text-align: right;
+  color: #666;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.5px;
+}
+
+/* 레트로 테마 계좌 섹션 */
+.retro-section .account-info {
+  padding: 40px 20px;
+  background: var(--pixel-dark, #0a0a0a);
+  box-sizing: border-box;
+}
+
+.retro-section .account-group {
+  margin: 30px auto;
+  max-width: 440px;
+  padding: 20px;
+  background: var(--pixel-dark, #0a0a0a);
+  border: 3px solid var(--pixel-pink, #ff006e);
+  box-sizing: border-box;
+}
+
+.retro-section .account-item {
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(255, 0, 110, 0.1);
+  border: 2px solid var(--pixel-yellow, #ffd54a);
+  text-align: center;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  box-sizing: border-box;
+}
+
+.retro-section .copy-btn {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: var(--pixel-yellow, #ffd54a);
+  color: var(--pixel-dark, #0a0a0a);
+  border: 2px solid var(--pixel-dark, #0a0a0a);
+  cursor: pointer;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  transition: all 0.2s ease;
+}
+
+.retro-section .copy-btn:hover {
+  background: var(--pixel-pink, #ff006e);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* 토스트 메시지 스타일 */
+.toast-message {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  z-index: 10000;
+  animation: slideUpToast 0.3s ease forwards;
+  max-width: 90%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  text-align: center;
+}
+
+@keyframes slideUpToast {
+  to {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.toast-message.fade-out {
+  animation: fadeOutToast 0.3s ease forwards;
+}
+
+@keyframes fadeOutToast {
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+}
+
+/* 반응형 조정 */
+@media (max-width: 768px) {
+  .modern-section .account-section,
+  .retro-section .account-info {
+    padding: 15px;
+  }
+  
+  .modern-section .account-group,
+  .retro-section .account-group {
+    padding: 20px;
+  }
+  
+  .account-info-row {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .account-value {
+    text-align: center;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modern-section .account-group,
+  .retro-section .account-group {
+    padding: 15px;
+  }
+  
+  .account-item {
+    padding: 15px;
+  }
+  
+  .copy-btn {
+    width: 100%;
+    margin-top: 15px;
+  }
+}

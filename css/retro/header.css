@@ -1,0 +1,125 @@
+/* ====================================
+   RETRO THEME - HEADER & TITLE
+   ==================================== */
+
+/* Title Section */
+.retro-section .title-section {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--pixel-dark);
+  border: 4px solid var(--pixel-pink);
+  margin: 20px;
+  position: relative;
+  overflow: visible;
+}
+
+.retro-section .title-section::before {
+  content: '★ ☆ ★ ☆ ★';
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--pixel-dark);
+  padding: 0 20px;
+  color: var(--pixel-yellow);
+  font-size: 20px;
+}
+
+/* Wedding Title */
+.retro-section .wedding-title,
+.retro-section .celebrate-text {
+  font-family: 'Press Start 2P', cursive !important;
+  font-size: clamp(20px, 5vw, 36px);
+  color: var(--pixel-yellow);
+  text-shadow: 
+    3px 3px 0 var(--pixel-pink),
+    6px 6px 0 var(--pixel-cyan);
+  margin-bottom: 30px;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 3px 3px 0 var(--pixel-pink), 6px 6px 0 var(--pixel-cyan); }
+  to { text-shadow: 3px 3px 0 var(--pixel-cyan), 6px 6px 10px var(--pixel-pink); }
+}
+
+.retro-section .wedding-subtitle {
+  font-family: 'DotGothic16', monospace !important;
+  font-size: clamp(20px, 3vw, 28px);
+  color: var(--pixel-cyan);
+  letter-spacing: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.3; }
+}
+
+/* Hero Image */
+.retro-section .hero-image {
+  max-width: 600px;
+  margin: 40px auto;
+  position: relative;
+  border: 4px solid var(--pixel-pink);
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+.retro-section .hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: contrast(1.2) saturate(1.5);
+}
+
+.retro-section .hero-image::after {
+  content: 'PRESS START';
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--pixel-dark);
+  color: var(--pixel-yellow);
+  padding: 10px 20px;
+  border: 2px solid var(--pixel-pink);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
+  animation: blink 1s step-end infinite;
+}
+
+/* Pixel Hearts */
+.pixel-heart {
+  display: inline-block;
+  width: 24px;
+  height: 20px;
+  margin: 0 10px;
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+}
+
+.pixel-heart::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--pixel-pink);
+  box-shadow:
+    4px 0 var(--pixel-pink), 8px 0 var(--pixel-pink),
+    12px 0 var(--pixel-pink), 16px 0 var(--pixel-pink),
+    0 4px var(--pixel-pink), 4px 4px var(--pixel-pink),
+    8px 4px var(--pixel-pink), 12px 4px var(--pixel-pink),
+    16px 4px var(--pixel-pink), 20px 4px var(--pixel-pink),
+    0 8px var(--pixel-pink), 4px 8px var(--pixel-pink),
+    8px 8px var(--pixel-pink), 12px 8px var(--pixel-pink),
+    16px 8px var(--pixel-pink), 20px 8px var(--pixel-pink),
+    4px 12px var(--pixel-pink), 8px 12px var(--pixel-pink),
+    12px 12px var(--pixel-pink), 16px 12px var(--pixel-pink),
+    8px 16px var(--pixel-pink), 12px 16px var(--pixel-pink);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}

@@ -1,0 +1,48 @@
+name: Deploy Firebase Rules
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'firestore.rules'
+      - 'storage.rules'
+      - 'firebase.json'
+      - '.firebaserc'
+  workflow_dispatch:
+
+jobs:
+  deploy-rules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+      
+      - name: Check for Firebase secrets
+        id: check-secrets
+        run: |
+          if [ -n "${{ secrets.FIREBASE_TOKEN }}" ] && [ -n "${{ secrets.FIREBASE_PROJECT_ID }}" ]; then
+            echo "has_secrets=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_secrets=false" >> $GITHUB_OUTPUT
+            echo "Firebase secrets not configured. Skipping Firebase deployment."
+          fi
+      
+      - name: Deploy Firestore Rules
+        if: steps.check-secrets.outputs.has_secrets == 'true'
+        run: |
+          firebase deploy --only firestore:rules --token "${{ secrets.FIREBASE_TOKEN }}" --project "${{ secrets.FIREBASE_PROJECT_ID }}"
+      
+      - name: Deploy Storage Rules
+        if: steps.check-secrets.outputs.has_secrets == 'true'
+        run: |
+          firebase deploy --only storage:rules --token "${{ secrets.FIREBASE_TOKEN }}" --project "${{ secrets.FIREBASE_PROJECT_ID }}"
+        continue-on-error: true

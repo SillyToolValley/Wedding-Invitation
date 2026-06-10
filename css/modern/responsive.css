@@ -1,0 +1,155 @@
+/* ====================================
+   MODERN THEME - RESPONSIVE
+   ==================================== */
+
+/* Tablet Responsive */
+@media (max-width: 768px) {
+  .modern-section .container {
+    padding: 15px;
+  }
+  
+  .modern-section h1 {
+    font-size: 2.5rem;
+  }
+  
+  .modern-section h2 {
+    font-size: 2rem;
+  }
+  
+  .modern-section h3 {
+    font-size: 1.5rem;
+  }
+  
+  .modern-section .invitation-msg {
+    padding: 40px 20px;
+    margin: 30px auto;
+  }
+  
+  .modern-section .calendar {
+    padding: 30px 15px;
+  }
+  
+  .modern-section .calendar-grid {
+    gap: 5px;
+  }
+  
+  .modern-section button {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+  
+  .modern-section .photo-album {
+    padding: 40px 15px;
+  }
+  
+  .modern-section .slider-controls {
+    gap: 20px;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+  .modern-section h1 {
+    font-size: 2rem;
+  }
+  
+  .modern-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .modern-section h3 {
+    font-size: 1.2rem;
+  }
+  
+  .modern-section p {
+    font-size: 0.95rem;
+  }
+  
+  .modern-section .invitation-msg {
+    padding: 30px 15px;
+    border-radius: 15px;
+  }
+  
+  .modern-section .calendar {
+    padding: 25px 10px;
+    border-radius: 15px;
+  }
+  
+  .modern-section .calendar-grid {
+    gap: 3px;
+  }
+  
+  .modern-section .calendar-header,
+  .modern-section .calendar-day {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+  
+  .modern-section .map-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .modern-section .map-btn {
+    width: 100%;
+  }
+  
+  .modern-section .share-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+  
+  .modern-section .attendance button {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Small Mobile Responsive */
+@media (max-width: 360px) {
+  .modern-section h1 {
+    font-size: 1.8rem;
+  }
+  
+  .modern-section h2 {
+    font-size: 1.3rem;
+  }
+  
+  .modern-section h3 {
+    font-size: 1.1rem;
+  }
+  
+  .modern-section p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .modern-section .calendar-grid {
+    transform: scale(0.95);
+    transform-origin: center;
+  }
+  
+  .modern-section button {
+    padding: 8px 15px;
+    font-size: 0.85rem;
+  }
+  
+  .modern-section .parent-names {
+    flex-direction: column;
+  }
+  
+  .modern-section .transport-content {
+    font-size: 0.85rem;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .modern-section .hero-image {
+    max-height: 50vh;
+  }
+  
+  .modern-section .photo-slider {
+    max-height: 60vh;
+  }
+}

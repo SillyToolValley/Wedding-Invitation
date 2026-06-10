@@ -1,0 +1,149 @@
+/* ====================================
+   RETRO THEME - BUTTONS & FORMS
+   ==================================== */
+
+/* Base Button Styles */
+.retro-section button {
+  font-family: 'Press Start 2P', cursive;
+  border: 3px solid var(--pixel-cyan);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  background: var(--pixel-pink);
+  color: var(--pixel-dark);
+}
+
+.retro-section button:hover {
+  background: var(--pixel-cyan);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--pixel-cyan);
+}
+
+.retro-section button:active {
+  transform: scale(0.95);
+}
+
+/* Special Border Button */
+.retro-section .special-border {
+  position: relative;
+  background: var(--pixel-dark);
+  color: var(--pixel-yellow);
+  border: 4px solid var(--pixel-pink);
+  padding: 20px 40px;
+  font-size: 16px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.retro-section .special-border::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 2px dashed var(--pixel-cyan);
+}
+
+/* Contact Buttons */
+.retro-section .retro-contact-btn {
+  padding: 10px 15px;
+  background: var(--pixel-pink);
+  color: var(--pixel-white);
+  border: 2px solid var(--pixel-pink);
+  font-size: 20px;
+  margin: 5px;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.retro-section .retro-contact-btn:hover {
+  background: var(--pixel-light-pink);
+  color: var(--pixel-dark);
+  border: 2px solid var(--pixel-light-pink);
+}
+
+/* Share Buttons Section */
+.retro-section.share-buttons {
+  overflow: hidden !important;
+  position: relative;
+}
+
+/* Share Buttons */
+.retro-section .share-btn {
+  padding: 20px 40px;
+  background: linear-gradient(135deg, var(--pixel-pink), var(--pixel-purple));
+  color: var(--pixel-white);
+  border: 3px solid var(--pixel-cyan);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  margin: 10px;
+  position: relative;
+  overflow: hidden !important;
+  z-index: 1;
+}
+
+.retro-section .share-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+  z-index: -1;
+}
+
+.retro-section .share-btn:hover::after {
+  left: 100%;
+}
+
+/* Removed shine animation - using simple transition instead */
+
+/* Attendance Button */
+.retro-section .attendance button {
+  padding: 25px 50px;
+  background: var(--pixel-yellow);
+  color: var(--pixel-dark);
+  border: 4px solid var(--pixel-pink);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 16px;
+  animation: pulse 2s ease-in-out infinite;
+  position: relative;
+}
+
+.retro-section .attendance button:hover {
+  background: var(--pixel-cyan);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--pixel-cyan);
+}
+
+/* Submit Buttons */
+.retro-section .submit-btn {
+  width: 100%;
+  padding: 15px;
+  background: var(--pixel-pink);
+  color: var(--pixel-dark);
+  border: 3px solid var(--pixel-cyan);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 14px;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+.retro-section .submit-btn:hover {
+  background: var(--pixel-cyan);
+  color: var(--pixel-dark);
+  box-shadow: 0 0 15px var(--pixel-cyan);
+}
+
+/* Game Mode Buttons */
+.retro-section .game-mode-btn {
+  padding: 12px 20px;
+  background: var(--pixel-yellow);
+  color: var(--pixel-dark);
+  border: 3px solid var(--pixel-pink);
+  font-family: 'Press Start 2P', cursive;
+  font-size: 10px;
+  animation: blink 2s step-end infinite;
+}
+

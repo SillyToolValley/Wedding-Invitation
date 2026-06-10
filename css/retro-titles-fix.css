@@ -1,0 +1,211 @@
+/* ======================================
+   Retro 테마 타이틀 크기 및 Wrapping 수정
+   ====================================== */
+
+/* 모든 Retro 타이틀 공통 스타일 */
+.retro-section h3 {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: clamp(10px, 2.5vw, 14px) !important;
+  line-height: 1.5 !important;
+  padding: 20px 10px !important;
+  margin: 20px auto !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  color: var(--pixel-yellow, #ffde00) !important;
+}
+
+/* 픽셀 아이콘 스타일 */
+.retro-section h3 .pixel-icon {
+  flex-shrink: 0 !important;
+  display: inline-block !important;
+  width: clamp(14px, 2.5vw, 20px) !important;
+  height: clamp(14px, 2.5vw, 20px) !important;
+  font-size: clamp(14px, 2.5vw, 20px) !important;
+  line-height: 1 !important;
+}
+
+/* 특정 섹션별 타이틀 조정 */
+
+/* Game Location 타이틀 */
+.retro-section .directions h3 {
+  font-size: clamp(9px, 2.2vw, 13px) !important;
+}
+
+/* Support Players 타이틀 */
+.retro-section .parents-contact h3 {
+  font-size: clamp(9px, 2.2vw, 13px) !important;
+}
+
+/* Wedding Runner Game 타이틀 - 여백 추가 */
+.retro-section .minigame-section h3 {
+  font-size: clamp(9px, 2.2vw, 13px) !important;
+  padding: 20px 20px !important; /* 양옆 여백 증가 */
+  gap: 5px !important; /* 아이콘과 텍스트 사이 간격 축소 */
+}
+
+.retro-section .minigame-section h3 .pixel-icon {
+  width: clamp(12px, 2.2vw, 18px) !important; /* 아이콘 크기 축소 */
+  height: clamp(12px, 2.2vw, 18px) !important;
+  font-size: clamp(12px, 2.2vw, 18px) !important;
+}
+
+/* Guest Book 타이틀 */
+.retro-section .guestbook h3 {
+  font-size: clamp(10px, 2.3vw, 14px) !important;
+}
+
+/* Photo Gallery 타이틀 */
+.retro-section .gallery h3 {
+  font-size: clamp(10px, 2.3vw, 14px) !important;
+}
+
+/* Calendar 타이틀 */
+.retro-section .calendar h3 {
+  font-size: clamp(10px, 2.3vw, 14px) !important;
+}
+
+/* Stage Info 타이틀 */
+.retro-section .title-large {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  font-size: clamp(12px, 2.8vw, 16px) !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+}
+
+.retro-section .title-large span {
+  font-size: clamp(12px, 2.8vw, 16px) !important;
+}
+
+/* 작은 화면에서 타이틀 조정 */
+@media (max-width: 480px) {
+  .retro-section h3 {
+    font-size: clamp(8px, 3vw, 12px) !important;
+    gap: 5px !important;
+    padding: 15px 8px !important;
+  }
+  
+  .retro-section h3 .pixel-icon {
+    width: clamp(12px, 3vw, 16px) !important;
+    height: clamp(12px, 3vw, 16px) !important;
+    font-size: clamp(12px, 3vw, 16px) !important;
+  }
+  
+  /* 긴 타이틀은 더 작게 */
+  .retro-section .directions h3,
+  .retro-section .parents-contact h3,
+  .retro-section .minigame-section h3 {
+    font-size: clamp(7px, 2.5vw, 10px) !important;
+  }
+}
+
+/* 아주 작은 화면 (360px 이하) */
+@media (max-width: 360px) {
+  .retro-section h3 {
+    font-size: clamp(7px, 3.5vw, 11px) !important;
+    gap: 3px !important;
+    padding: 12px 5px !important;
+  }
+  
+  .retro-section h3 .pixel-icon {
+    width: clamp(10px, 3.5vw, 14px) !important;
+    height: clamp(10px, 3.5vw, 14px) !important;
+    font-size: clamp(10px, 3.5vw, 14px) !important;
+  }
+  
+  /* 아주 긴 타이틀은 아이콘 숨기기 */
+  .retro-section .minigame-section h3 .pixel-icon {
+    display: none !important;
+  }
+}
+
+/* 320px 이하에서 극단적 처리 */
+@media (max-width: 320px) {
+  /* 텍스트만 표시하고 아이콘 숨기기 */
+  .retro-section .directions h3 .pixel-icon,
+  .retro-section .parents-contact h3 .pixel-icon {
+    display: none !important;
+  }
+  
+  .retro-section h3 {
+    font-size: clamp(6px, 4vw, 10px) !important;
+  }
+}
+
+/* 큰 화면에서도 적절한 크기 유지 */
+@media (min-width: 768px) {
+  .retro-section h3 {
+    font-size: clamp(12px, 2vw, 16px) !important;
+    padding: 25px 20px !important;
+  }
+  
+  .retro-section h3 .pixel-icon {
+    width: 20px !important;
+    height: 20px !important;
+    font-size: 20px !important;
+  }
+}
+
+/* 타이틀 컨테이너 오버플로우 방지 */
+.retro-section {
+  overflow-x: hidden !important;
+}
+
+/* 타이틀 hover 효과 (선택사항) */
+.retro-section h3:hover {
+  animation: pixelGlow 0.5s ease-in-out !important;
+}
+
+@keyframes pixelGlow {
+  0%, 100% { 
+    text-shadow: 0 0 5px var(--pixel-pink, #ff006e);
+  }
+  50% { 
+    text-shadow: 0 0 15px var(--pixel-pink, #ff006e), 0 0 25px var(--pixel-yellow, #ffde00);
+  }
+}
+
+/* 대안: 긴 텍스트 줄임 처리 */
+.retro-section h3 {
+  position: relative !important;
+}
+
+/* 말줄임표 처리 (필요시 활성화) */
+/*
+.retro-section h3 {
+  text-overflow: ellipsis !important;
+}
+*/
+
+/* Game World 패널 타이틀 */
+.game-panel-content h2 {
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: clamp(10px, 2.5vw, 16px) !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  padding: 0 10px !important;
+  text-align: center !important;
+}
+
+/* Full Leader Board 타이틀 */
+.retro-section .leaderboard-title {
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: clamp(10px, 2.5vw, 14px) !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  text-align: center !important;
+  padding: 0 20px !important;
+}
