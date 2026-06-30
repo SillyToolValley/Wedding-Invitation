@@ -1,0 +1,77 @@
+/* ====================================
+   MODERN THEME - INVITATION MESSAGE
+   ==================================== */
+
+.modern-section .invitation-msg {
+  background: var(--modern-white);
+  padding: 60px 30px;
+  margin: 40px auto;
+  max-width: 700px;
+  border-radius: 20px;
+  box-shadow: var(--modern-shadow);
+  text-align: center;
+  position: relative;
+}
+
+.modern-section .invitation-msg::before {
+  content: '"';
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-size: 60px;
+  color: var(--modern-pink);
+  opacity: 0.3;
+  font-family: 'Playfair Display', serif;
+}
+
+.modern-section .invitation-msg h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  color: var(--modern-rose);
+  margin-bottom: 30px;
+}
+
+.modern-section .invitation-msg p {
+  font-family: 'Noto Serif KR', serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 2;
+  color: var(--modern-gray);
+  margin-bottom: 20px;
+}
+
+.modern-section .invitation-msg .highlight {
+  color: var(--modern-rose);
+  font-weight: 600;
+}
+
+.modern-section .invitation-msg .parents-info {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid var(--modern-light-gray);
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+}
+
+.modern-section .invitation-msg .parent-names {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.modern-section .invitation-msg .parent-group {
+  text-align: center;
+  flex: 1;
+  min-width: 200px;
+}
+
+.modern-section .invitation-msg .parent-group strong {
+  color: var(--modern-dark);
+  font-weight: 600;
+}
+
+.modern-section .invitation-msg .parent-label {
+  color: var(--modern-gray);
+  font-size: 0.9em;
+  margin-top: 5px;
+}

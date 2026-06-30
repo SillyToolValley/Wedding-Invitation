@@ -1,0 +1,112 @@
+/* ======================================
+   게임하러가기 버튼 위치 수정
+   ====================================== */
+
+/* 게임 모드 버튼 - 네비게이션으로 이동되어 숨김 처리 */
+.game-mode-btn {
+  display: none !important;
+  /* 아래는 레거시 코드 - 혹시 필요할 경우를 위해 보존 */
+  position: fixed !important;
+  top: 70px !important;
+  /* 컨테이너 최대 너비가 480px이므로 */
+  right: calc(50% - 240px + 10px) !important; /* 컨테이너 오른쪽 끝에서 10px 안쪽 */
+  padding: 10px 15px !important;
+  background: linear-gradient(135deg, #ff006e, #ff4590) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 20px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 15px rgba(255, 0, 110, 0.4) !important;
+  transition: all 0.3s ease !important;
+  z-index: 1000 !important;
+  white-space: nowrap !important;
+}
+
+.game-mode-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(255, 0, 110, 0.6) !important;
+}
+
+/* Exit 버튼도 동일한 위치에 */
+.exit-btn {
+  position: fixed !important;
+  top: 70px !important;
+  right: calc(50% - 240px + 10px) !important;
+  z-index: 1000 !important;
+}
+
+/* 모바일 화면 (480px 이하) - 화면 전체 너비 사용 */
+@media (max-width: 480px) {
+  .game-mode-btn,
+  .exit-btn {
+    right: 10px !important; /* 화면 오른쪽에서 10px */
+    font-size: 11px !important;
+    padding: 8px 12px !important;
+  }
+}
+
+/* 작은 모바일 화면 */
+@media (max-width: 360px) {
+  .game-mode-btn,
+  .exit-btn {
+    right: 8px !important;
+    top: 65px !important;
+    font-size: 10px !important;
+    padding: 6px 10px !important;
+  }
+}
+
+/* 태블릿 화면 (768px 이상) */
+@media (min-width: 768px) {
+  .game-mode-btn,
+  .exit-btn {
+    /* 여전히 480px 컨테이너 기준으로 위치 */
+    right: calc(50% - 240px + 10px) !important;
+    font-size: 13px !important;
+    padding: 12px 18px !important;
+  }
+}
+
+/* 큰 화면 (1024px 이상) */
+@media (min-width: 1024px) {
+  .game-mode-btn,
+  .exit-btn {
+    right: calc(50% - 240px + 10px) !important;
+    font-size: 14px !important;
+    padding: 12px 20px !important;
+  }
+}
+
+/* 아주 큰 화면 (1440px 이상) */
+@media (min-width: 1440px) {
+  .game-mode-btn,
+  .exit-btn {
+    /* 480px 컨테이너 오른쪽 끝 유지 */
+    right: calc(50% - 240px + 10px) !important;
+  }
+}
+
+/* Retro 테마에서는 숨김 */
+body.retro-active .game-mode-btn {
+  display: none !important;
+}
+
+/* 버튼 내부 이모지 정렬 */
+.game-mode-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+}
+
+/* 디버그용 (필요시 활성화) */
+/*
+.game-mode-btn {
+  outline: 2px solid red !important;
+}
+
+.container {
+  outline: 2px solid blue !important;
+}
+*/

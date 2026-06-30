@@ -1,0 +1,226 @@
+/* ======================================
+   모바일 청첩장 전체 폭 제한
+   모든 섹션을 모바일 폰 너비로 제한
+   ====================================== */
+
+/* 메인 컨테이너 최대 너비 제한 */
+body {
+  background: #ffe0ec;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* Retro 테마일 때 body 배경 검은색 */
+body.retro-active {
+  background: #000000 !important;
+}
+
+.container {
+  width: 100%;
+  max-width: 480px !important; /* 모바일 최대 너비 */
+  margin: 0 auto !important;
+  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow-x: hidden !important;
+}
+
+/* Retro 테마일 때 container 배경도 검은색 */
+body.retro-active .container {
+  background: #000000 !important;
+}
+
+/* 모든 섹션 너비 제한 */
+section {
+  width: 100% !important;
+  max-width: 480px !important;
+  margin: 0 auto !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* 타이틀 섹션 */
+.title-section {
+  width: 100% !important;
+  max-width: 480px !important;
+  box-sizing: border-box !important;
+}
+
+/* Modern/Retro 섹션 */
+.modern-section,
+.retro-section {
+  width: 100% !important;
+  max-width: 480px !important;
+  box-sizing: border-box !important;
+}
+
+/* 갤러리 섹션 */
+.gallery {
+  width: 100% !important;
+  max-width: 480px !important;
+  box-sizing: border-box !important;
+}
+
+/* 캘린더 섹션 */
+.calendar {
+  width: 100% !important;
+  max-width: 480px !important;
+  box-sizing: border-box !important;
+}
+
+/* 혼주 연락처 섹션 */
+.parents-contact {
+  width: 100% !important;
+  max-width: 480px !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+}
+
+/* 계좌 정보 섹션 */
+.account-info {
+  width: 100% !important;
+  max-width: 480px !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+}
+
+/* 오시는 길 섹션 */
+.directions {
+  width: 100% !important;
+  max-width: 480px !important;
+  box-sizing: border-box !important;
+}
+
+/* 미니게임 섹션 */
+.minigame-section {
+  width: 100% !important;
+  max-width: 480px !important;
+  box-sizing: border-box !important;
+}
+
+/* 공유 버튼 섹션 */
+.share-section {
+  width: 100% !important;
+  max-width: 480px !important;
+  box-sizing: border-box !important;
+}
+
+/* RSVP 섹션 */
+.rsvp-section {
+  width: 100% !important;
+  max-width: 480px !important;
+  box-sizing: border-box !important;
+}
+
+/* 내부 컨텐츠들도 최대 너비 제한 */
+.calendar-grid,
+.gallery-grid,
+.parent-contact-row,
+.account-item,
+.share-buttons,
+.rsvp-form,
+.game-screen-container {
+  width: 100% !important;
+  max-width: 440px !important; /* 패딩 고려한 내부 컨텐츠 최대 너비 */
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+/* 맵 컨테이너 */
+#map,
+.map-container {
+  width: 100% !important;
+  max-width: 480px !important;
+  box-sizing: border-box !important;
+}
+
+/* 게임 모드 버튼 위치 조정 */
+.game-mode-btn {
+  position: fixed;
+  top: 20px;
+  right: calc(50% - 240px + 20px); /* 컨테이너 우측 기준 */
+  z-index: 1000;
+}
+
+/* Exit 버튼 위치 조정 */
+.exit-btn {
+  position: fixed;
+  top: 20px;
+  right: calc(50% - 240px + 20px); /* 컨테이너 우측 기준 */
+  z-index: 1000;
+}
+
+/* 큰 화면에서 청첩장 중앙 정렬 및 배경 */
+@media (min-width: 768px) {
+  body {
+    background: #ffe0ec;
+    padding: 20px 0;
+  }
+  
+  /* Retro 테마일 때는 큰 화면에서도 검은 배경 유지 */
+  body.retro-active {
+    background: #000000 !important;
+  }
+  
+  .container {
+    border-radius: 10px;
+    margin: 20px auto;
+  }
+  
+  /* Retro 테마일 때는 border-radius 제거 (픽셀 느낌) */
+  body.retro-active .container {
+    border-radius: 0 !important;
+  }
+  
+  /* 게임 모드 버튼 고정 위치 */
+  .game-mode-btn,
+  .exit-btn {
+    right: calc(50vw - 220px); /* 뷰포트 중앙에서 컨테이너 우측까지 */
+  }
+}
+
+/* 아주 큰 화면 (데스크톱) */
+@media (min-width: 1200px) {
+  body {
+    padding: 40px 0;
+  }
+  
+  .container {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* 전체 너비 초과 방지 */
+* {
+  max-width: 100% !important;
+}
+
+/* 가로 스크롤 완전 차단 */
+html {
+  overflow-x: hidden !important;
+}
+
+body {
+  overflow-x: hidden !important;
+}
+
+/* 트랜지션 패널도 최대 너비 제한 */
+.transition-panel {
+  max-width: 480px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  margin: 0 auto !important;
+}
+
+/* 디버그용 (필요시 활성화) */
+/*
+.container {
+  outline: 3px solid red !important;
+}
+
+section {
+  outline: 2px solid blue !important;
+}
+*/

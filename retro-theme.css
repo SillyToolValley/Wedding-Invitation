@@ -1,0 +1,1534 @@
+/* ====================================
+   16-BIT RETRO GAME WEDDING - FINAL VERSION
+   ==================================== */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+/* Color Palette */
+:root {
+  --pixel-pink: #ff006e;
+  --pixel-dark: #0a0a0a;
+  --pixel-light-pink: #ff4590;
+  --pixel-yellow: #ffde00;
+  --pixel-cyan: #00ffff;
+  --pixel-green: #00ff00;
+  --pixel-size: 4px;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+body {
+  font-family: 'Press Start 2P', 'Noto Sans KR', monospace;
+  background: var(--pixel-dark);
+  color: var(--pixel-pink);
+  font-size: 14px;
+  line-height: 2;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Hide game button in retro theme */
+body.retro-active .game-mode-btn {
+  display: none !important;
+}
+
+/* Scanline Effect (subtle) */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    transparent 0%,
+    rgba(255, 0, 110, 0.02) 50%,
+    transparent 100%
+  );
+  background-size: 100% 4px;
+  animation: scanlines 8s linear infinite;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes scanlines {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(10px); }
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  position: relative;
+  z-index: 10;
+}
+
+/* 16-bit Pixel Icons */
+.pixel-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin: 0 8px;
+  position: relative;
+  vertical-align: middle;
+  overflow: visible; /* 아이콘이 잘리지 않도록 */
+  flex-shrink: 0;
+}
+
+/* Phone Icon */
+.pixel-icon-phone::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--pixel-cyan);
+  box-shadow:
+    /* Phone body */
+    4px 0 var(--pixel-cyan),
+    8px 0 var(--pixel-cyan),
+    12px 0 var(--pixel-cyan),
+    0 4px var(--pixel-cyan),
+    12px 4px var(--pixel-cyan),
+    0 8px var(--pixel-cyan),
+    12px 8px var(--pixel-cyan),
+    0 12px var(--pixel-cyan),
+    4px 12px var(--pixel-cyan),
+    8px 12px var(--pixel-cyan),
+    12px 12px var(--pixel-cyan),
+    /* Handle */
+    -4px -4px var(--pixel-cyan),
+    16px -4px var(--pixel-cyan);
+}
+
+/* Calendar Icon */
+.pixel-icon-calendar::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--pixel-yellow);
+  box-shadow:
+    /* Top bar */
+    4px 0 var(--pixel-yellow),
+    8px 0 var(--pixel-yellow),
+    12px 0 var(--pixel-yellow),
+    16px 0 var(--pixel-yellow),
+    /* Grid */
+    0 8px var(--pixel-yellow),
+    4px 8px var(--pixel-yellow),
+    8px 8px var(--pixel-yellow),
+    12px 8px var(--pixel-yellow),
+    16px 8px var(--pixel-yellow),
+    0 12px var(--pixel-yellow),
+    8px 12px var(--pixel-yellow),
+    16px 12px var(--pixel-yellow),
+    0 16px var(--pixel-yellow),
+    4px 16px var(--pixel-yellow),
+    8px 16px var(--pixel-yellow),
+    12px 16px var(--pixel-yellow),
+    16px 16px var(--pixel-yellow);
+}
+
+/* Photo/Camera Icon */
+.pixel-icon-photo::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--pixel-green);
+  box-shadow:
+    /* Camera body */
+    4px 0 var(--pixel-green),
+    8px 0 var(--pixel-green),
+    12px 0 var(--pixel-green),
+    16px 0 var(--pixel-green),
+    0 4px var(--pixel-green),
+    16px 4px var(--pixel-green),
+    0 8px var(--pixel-green),
+    16px 8px var(--pixel-green),
+    0 12px var(--pixel-green),
+    4px 12px var(--pixel-green),
+    8px 12px var(--pixel-green),
+    12px 12px var(--pixel-green),
+    16px 12px var(--pixel-green),
+    /* Lens */
+    8px 4px var(--pixel-green),
+    8px 8px var(--pixel-dark),
+    /* Flash */
+    2px -4px var(--pixel-yellow),
+    6px -4px var(--pixel-yellow);
+}
+
+/* Map Icon */
+.pixel-icon-map::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--pixel-cyan);
+  box-shadow:
+    /* Map outline */
+    4px 0 var(--pixel-cyan),
+    8px 0 var(--pixel-cyan),
+    12px 0 var(--pixel-cyan),
+    16px 0 var(--pixel-cyan),
+    0 4px var(--pixel-cyan),
+    0 8px var(--pixel-cyan),
+    0 12px var(--pixel-cyan),
+    16px 4px var(--pixel-cyan),
+    16px 8px var(--pixel-cyan),
+    16px 12px var(--pixel-cyan),
+    4px 12px var(--pixel-cyan),
+    8px 12px var(--pixel-cyan),
+    12px 12px var(--pixel-cyan),
+    /* Pin */
+    8px 4px var(--pixel-pink),
+    8px 8px var(--pixel-pink);
+}
+
+/* Message Icon */
+.pixel-icon-message::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--pixel-yellow);
+  box-shadow:
+    /* Envelope */
+    4px 0 var(--pixel-yellow),
+    8px 0 var(--pixel-yellow),
+    12px 0 var(--pixel-yellow),
+    16px 0 var(--pixel-yellow),
+    0 4px var(--pixel-yellow),
+    16px 4px var(--pixel-yellow),
+    0 8px var(--pixel-yellow),
+    16px 8px var(--pixel-yellow),
+    0 12px var(--pixel-yellow),
+    4px 12px var(--pixel-yellow),
+    8px 12px var(--pixel-yellow),
+    12px 12px var(--pixel-yellow),
+    16px 12px var(--pixel-yellow),
+    /* Flap */
+    8px 4px var(--pixel-pink);
+}
+
+/* Gift Icon */
+.pixel-icon-gift::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--pixel-pink);
+  box-shadow:
+    /* Ribbon */
+    8px 0 var(--pixel-yellow),
+    8px 4px var(--pixel-yellow),
+    4px 4px var(--pixel-yellow),
+    12px 4px var(--pixel-yellow),
+    /* Box */
+    0 8px var(--pixel-pink),
+    4px 8px var(--pixel-pink),
+    8px 8px var(--pixel-pink),
+    12px 8px var(--pixel-pink),
+    16px 8px var(--pixel-pink),
+    0 12px var(--pixel-pink),
+    16px 12px var(--pixel-pink),
+    0 16px var(--pixel-pink),
+    4px 16px var(--pixel-pink),
+    8px 16px var(--pixel-pink),
+    12px 16px var(--pixel-pink),
+    16px 16px var(--pixel-pink);
+}
+
+/* Write Icon */
+.pixel-icon-write {
+  animation: none !important;
+  transform: none !important;
+}
+
+.pixel-icon-write::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--pixel-green);
+  box-shadow:
+    /* Pencil */
+    12px 0 var(--pixel-yellow),
+    8px 4px var(--pixel-yellow),
+    4px 8px var(--pixel-green),
+    0 12px var(--pixel-green),
+    /* Tip */
+    -4px 16px var(--pixel-dark);
+}
+
+/* Pixel Heart (smaller for inline use) */
+.pixel-heart {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 0 10px;
+  position: relative;
+}
+
+.pixel-heart::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--pixel-pink);
+  box-shadow:
+    4px 0 var(--pixel-pink),
+    12px 0 var(--pixel-pink),
+    16px 0 var(--pixel-pink),
+    0 4px var(--pixel-pink),
+    4px 4px var(--pixel-pink),
+    8px 4px var(--pixel-pink),
+    12px 4px var(--pixel-pink),
+    16px 4px var(--pixel-pink),
+    20px 4px var(--pixel-pink),
+    0 8px var(--pixel-pink),
+    4px 8px var(--pixel-pink),
+    8px 8px var(--pixel-pink),
+    12px 8px var(--pixel-pink),
+    16px 8px var(--pixel-pink),
+    20px 8px var(--pixel-pink),
+    4px 12px var(--pixel-pink),
+    8px 12px var(--pixel-pink),
+    12px 12px var(--pixel-pink),
+    16px 12px var(--pixel-pink),
+    8px 16px var(--pixel-pink),
+    12px 16px var(--pixel-pink);
+  animation: heartbeat 1s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* Fireworks - Pixel Style */
+.fireworks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.firework {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--pixel-pink);
+  animation: firework-rise 1.5s ease-out forwards;
+}
+
+.firework::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--pixel-yellow);
+  --scale: 1; /* 기본 스케일 */
+  box-shadow:
+    /* 메인 8방향 */
+    calc(-8px * var(--scale)) calc(-8px * var(--scale)) 0 var(--pixel-pink),
+    calc(8px * var(--scale)) calc(-8px * var(--scale)) 0 var(--pixel-cyan),
+    calc(-8px * var(--scale)) calc(8px * var(--scale)) 0 var(--pixel-green),
+    calc(8px * var(--scale)) calc(8px * var(--scale)) 0 var(--pixel-yellow),
+    0 calc(-12px * var(--scale)) 0 var(--pixel-pink),
+    0 calc(12px * var(--scale)) 0 var(--pixel-cyan),
+    calc(-12px * var(--scale)) 0 0 var(--pixel-green),
+    calc(12px * var(--scale)) 0 0 var(--pixel-yellow),
+    /* 추가 파티클 - 더 화려하게 */
+    calc(-6px * var(--scale)) calc(-10px * var(--scale)) 0 var(--pixel-light-pink),
+    calc(6px * var(--scale)) calc(-10px * var(--scale)) 0 var(--pixel-pink),
+    calc(-10px * var(--scale)) calc(-6px * var(--scale)) 0 var(--pixel-cyan),
+    calc(10px * var(--scale)) calc(-6px * var(--scale)) 0 var(--pixel-green),
+    calc(-4px * var(--scale)) calc(-14px * var(--scale)) 0 var(--pixel-yellow),
+    calc(4px * var(--scale)) calc(-14px * var(--scale)) 0 var(--pixel-pink),
+    calc(-14px * var(--scale)) calc(-4px * var(--scale)) 0 var(--pixel-green),
+    calc(14px * var(--scale)) calc(-4px * var(--scale)) 0 var(--pixel-cyan);
+  animation: pixel-explode 1s ease-out 1.5s forwards;
+  opacity: 0;
+}
+
+@keyframes firework-rise {
+  0% {
+    transform: translateY(100vh) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pixel-explode {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(3);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+/* Floating Hearts - Pixel Style */
+.floating-hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.float-heart {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  bottom: -40px;
+}
+
+/* SVG 하트 사용 */
+.float-heart::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="%23ff006e" d="M16 28 L4 16 C1 13 1 7 4 4 C7 1 13 1 16 4 C19 1 25 1 28 4 C31 7 31 13 28 16 Z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.7;
+    
+  animation: float-up 10s linear forwards;
+}
+
+
+@keyframes float-up {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(-10vh) translateX(5px);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-50vh) translateX(-5px);
+    opacity: 0.7;
+  }
+  90% {
+    transform: translateY(-90vh) translateX(5px);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(0);
+    opacity: 0;
+  }
+}
+
+/* 길이형 커스텀 속성 */
+@property --y { syntax:"<length>"; inherits:false; initial-value:0px; }
+@property --jitter { syntax:"<length>"; inherits:false; initial-value:0px; }
+
+/* 컨테이너 예시 */
+#container{ position:relative; overflow:hidden; height:100vh; }
+
+/* ==== ultra tiny, slim balloon (fix) ==== */
+.pixel-balloon{
+  position:absolute;
+  top:100%; left:50%;
+  --px: 2px;
+  --balloon:#ff80ab;   /* 본체색 */
+  --string:#797979;    /* 꼬리색 */
+  --shine:#ffffff;     /* 연분홍 하이라이트 1픽셀 */
+  --duration: 8s;
+  --delay: 0s;
+  --drift: 0px;
+  --y: 0px;
+  --jitter: 0px;
+
+  /* 참고용 크기(필수는 아님) */
+  width: calc(7 * var(--px));
+  height: calc(18 * var(--px));
+
+  transform: translateX(calc(-50% + var(--drift))) translateY(var(--y));
+  animation: rise var(--duration) linear var(--delay) forwards;
+  will-change: transform;
+}
+
+.pixel-balloon::before{
+  content:'';
+  position:absolute; left:0; top:0;
+  width:var(--px); height:var(--px);
+  background: transparent; /* 뜬금픽셀 방지 */
+  box-shadow:
+    /* y=0 — ⭐ 맨 윗줄 3픽셀 */
+    calc(2*var(--px)) 0 var(--balloon),
+    calc(3*var(--px)) 0 var(--balloon),
+    calc(4*var(--px)) 0 var(--balloon),
+
+    /* y=1 */
+    calc(1*var(--px)) calc(1*var(--px)) var(--balloon),
+    calc(2*var(--px)) calc(1*var(--px)) #ffffff,
+    calc(3*var(--px)) calc(1*var(--px)) var(--balloon),
+    calc(4*var(--px)) calc(1*var(--px)) var(--balloon),
+    calc(5*var(--px)) calc(1*var(--px)) var(--balloon),
+
+    /* y=2 */
+    calc(1*var(--px)) calc(2*var(--px)) var(--balloon),
+    calc(2*var(--px)) calc(2*var(--px)) #ffffff,
+    calc(3*var(--px)) calc(2*var(--px)) var(--balloon),
+    calc(4*var(--px)) calc(2*var(--px)) var(--balloon),
+    calc(5*var(--px)) calc(2*var(--px)) var(--balloon),
+
+    /* y=3 */
+    calc(1*var(--px)) calc(3*var(--px)) var(--balloon),
+    calc(2*var(--px)) calc(3*var(--px)) var(--balloon),
+    calc(3*var(--px)) calc(3*var(--px)) var(--balloon),
+    calc(4*var(--px)) calc(3*var(--px)) var(--balloon),
+    calc(5*var(--px)) calc(3*var(--px)) var(--balloon),
+
+    /* y=4 */
+    calc(1*var(--px)) calc(4*var(--px)) var(--balloon),
+    calc(2*var(--px)) calc(4*var(--px)) var(--balloon),
+    calc(3*var(--px)) calc(4*var(--px)) var(--balloon),
+    calc(4*var(--px)) calc(4*var(--px)) var(--balloon),
+    calc(5*var(--px)) calc(4*var(--px)) var(--balloon),
+
+    /* y=5 */
+    calc(2*var(--px)) calc(5*var(--px)) var(--balloon),
+    calc(3*var(--px)) calc(5*var(--px)) var(--balloon),
+    calc(4*var(--px)) calc(5*var(--px)) var(--balloon),
+
+    /* y=6 — 하단 포인트 */
+    /*calc(3*var(--px)) calc(6*var(--px)) var(--balloon),*/
+
+    /* knot */
+    calc(3*var(--px)) calc(6*var(--px)) var(--balloon);
+}
+
+/* 꼬리: 지그재그 + 좌우 미세 흔들림 */
+.pixel-balloon::after{
+  content:'';
+  position:absolute;
+  left: calc(3 * var(--px));
+  top:  calc(8 * var(--px));
+  width:var(--px); height:var(--px);
+  background:var(--string);
+  box-shadow:
+    0 0 var(--string),
+    0 calc(1*var(--px)) var(--string),
+    calc(-1*var(--px)) calc(2*var(--px)) var(--string),
+    calc( 1*var(--px)) calc(3*var(--px)) var(--string),
+    0 calc(4*var(--px)) var(--string),
+    0 calc(5*var(--px)) var(--string);
+  transform: translateX(var(--jitter));
+  animation: tail 1.6s ease-in-out infinite;
+}
+
+/* 부드럽게 상승 */
+@keyframes rise{ from{ --y:0px; } to{ --y:-110vh; } }
+/* 꼬리 좌우 살랑 */
+@keyframes tail{ 0%,100%{ --jitter:0px; } 50%{ --jitter: calc(1*var(--px)); } }
+
+
+
+
+/* Title Section */
+.title-section {
+  text-align: center;
+  padding: 60px 20px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.title-section h1 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  letter-spacing: 3px;
+}
+
+.bride-name {
+  display: inline-block;
+  text-shadow: 
+    2px 2px 0 rgba(255, 0, 110, 0.2),
+    4px 4px 0 rgba(255, 0, 110, 0.1);
+}
+
+.groom-name {
+  display: inline-block;
+  text-shadow: 
+    -2px 2px 0 rgba(255, 0, 110, 0.2),
+    -4px 4px 0 rgba(255, 0, 110, 0.1);
+}
+
+.celebrate-text {
+  font-family: 'DotGothic16', 'Press Start 2P', monospace !important;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  margin-top: 50px;
+  text-transform: uppercase;
+  overflow: visible;
+}
+
+.celebrate-text .bride-name,
+.celebrate-text .groom-name {
+  color: var(--pixel-yellow);
+  text-shadow: 
+    2px 2px 0 var(--pixel-pink),
+    4px 4px 0 var(--pixel-cyan);
+  display: inline-block;
+  animation: glow 2s ease-in-out infinite alternate;
+  font-family: 'DotGothic16', monospace !important;
+}
+
+.celebrate-text .pixel-heart {
+  color: var(--pixel-pink);
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes glow {
+  from { 
+    text-shadow: 
+      2px 2px 0 var(--pixel-pink),
+      4px 4px 0 var(--pixel-cyan);
+  }
+  to { 
+    text-shadow: 
+      2px 2px 0 var(--pixel-cyan),
+      4px 4px 10px var(--pixel-pink);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* Main Photo */
+.main-photo {
+  margin: 40px auto;
+  max-width: 500px;
+  position: relative;
+}
+
+.main-photo img {
+  width: 100%;
+  height: auto;
+  border: 6px solid var(--pixel-pink);
+  filter: contrast(1.1) saturate(0.9);
+  display: block;
+  box-shadow: 
+    0 0 0 2px var(--pixel-dark),
+    0 0 0 8px var(--pixel-pink),
+    0 0 30px var(--pixel-pink);
+}
+
+/* Special Border Animation */
+.special-border {
+  animation: rainbow-border 3s linear infinite;
+}
+
+@keyframes rainbow-border {
+  0% { border-color: #ff006e; box-shadow: 0 0 30px #ff006e; }
+  25% { border-color: #ff4590; box-shadow: 0 0 30px #ff4590; }
+  50% { border-color: #ff69b4; box-shadow: 0 0 30px #ff69b4; }
+  75% { border-color: #ff4590; box-shadow: 0 0 30px #ff4590; }
+  100% { border-color: #ff006e; box-shadow: 0 0 30px #ff006e; }
+}
+
+/* Wedding Info */
+.wedding-info {
+  margin: 50px auto;
+  padding: 30px;
+  border: 4px solid var(--pixel-pink);
+  background: var(--pixel-dark);
+  max-width: 600px;
+  box-shadow: 
+    0 0 0 2px var(--pixel-dark),
+    0 0 0 6px var(--pixel-pink),
+    0 0 40px var(--pixel-pink);
+}
+
+.date {
+  font-size: 24px;
+  text-align: center;
+  margin: 15px 0;
+  animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 10px var(--pixel-pink); }
+  50% { text-shadow: 0 0 20px var(--pixel-pink), 0 0 30px var(--pixel-pink); }
+}
+
+.time, .venue {
+  font-size: 18px;
+  text-align: center;
+  margin: 15px 0;
+}
+
+/* Photo Album - Retro Slider */
+.retro-section .photo-album {
+  margin: 50px 0;
+}
+
+body.retro-active .photo-album h3,
+.retro-section .photo-album h3 {
+  text-align: center;
+  font-family: 'Press Start 2P', cursive !important;
+  font-size: 18px !important;
+  color: var(--pixel-yellow) !important;
+  text-shadow: 2px 2px 0 var(--pixel-pink) !important;
+  margin-bottom: 30px;
+  overflow: visible;
+  text-transform: uppercase;
+}
+
+/* 레트로 슬라이더 - 모던과 동일한 구조 */
+.retro-photo-slider {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto 20px;
+  background: var(--pixel-dark);
+  border: 6px solid var(--pixel-pink);
+  box-shadow: 
+    inset 0 0 0 2px var(--pixel-dark),
+    inset 0 0 0 4px var(--pixel-pink);
+}
+
+/* 9:16 비율 */
+.retro-photo-slider::before {
+  content: '';
+  display: block;
+  padding-top: 177.78%;
+}
+
+/* 슬라이드 컨테이너 */
+.retro-photo-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 개별 슬라이드 - 절대 위치 사용 */
+.retro-photo-track .photo-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.5s steps(8); /* 레트로 스텝 애니메이션 */
+  overflow: hidden;
+}
+
+/* 활성화된 슬라이드만 보이기 */
+.retro-photo-track .photo-slide.active {
+  opacity: 1;
+}
+
+.retro-photo-track .photo-slide img {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  background: var(--pixel-dark);
+  filter: contrast(1.2) brightness(1.1);
+  border: 4px solid var(--pixel-pink);
+  box-shadow:
+    4px 4px 0 var(--pixel-dark),
+    8px 8px 0 var(--pixel-pink);
+}
+
+/* Retro Slider Controls */
+.slider-controls {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.slider-btn {
+  width: auto;
+  padding: 15px 25px;
+  margin: 10px;
+  background: var(--pixel-dark);
+  color: var(--pixel-pink);
+  border: 4px solid var(--pixel-pink);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 12px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.1s;
+}
+
+.slider-btn::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: -4px;
+  bottom: -4px;
+  background: var(--pixel-pink);
+  opacity: 0.3;
+  z-index: -1;
+}
+
+.slider-btn:hover {
+  transform: translate(-2px, -2px);
+  background: var(--pixel-pink);
+  color: var(--pixel-dark);
+}
+
+.slider-btn:active {
+  transform: translate(0, 0);
+}
+
+#photoCounter {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--pixel-dark);
+  border: 2px solid var(--pixel-pink);
+  font-size: 14px;
+  color: var(--pixel-yellow);
+}
+
+/* Photo Modal */
+.photo-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.98);
+  z-index: 10000;
+  cursor: zoom-out;
+}
+
+.photo-modal img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 95%;
+  max-height: 95%;
+  border: 6px solid var(--pixel-pink);
+  box-shadow: 0 0 50px var(--pixel-pink);
+}
+
+.close-photo {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: var(--pixel-dark);
+  border: 4px solid var(--pixel-pink);
+  color: var(--pixel-pink);
+  font-size: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.close-photo:hover {
+  background: var(--pixel-pink);
+  color: var(--pixel-dark);
+}
+
+/* Buttons */
+button {
+  font-family: 'Press Start 2P', 'Noto Sans KR', monospace;
+  font-size: 14px;
+  padding: 16px 24px;
+  background: var(--pixel-dark);
+  color: var(--pixel-pink);
+  border: 4px solid var(--pixel-pink);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.1s;
+  box-shadow: 0 0 20px rgba(255, 0, 110, 0.3);
+}
+
+button:hover {
+  background: var(--pixel-pink);
+  color: var(--pixel-dark);
+  transform: translate(-3px, -3px);
+  box-shadow: 
+    6px 6px 0 var(--pixel-pink),
+    0 0 30px var(--pixel-pink);
+}
+
+button:active {
+  transform: translate(0, 0);
+  box-shadow: none;
+}
+
+/* Calendar */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+  margin-top: 30px;
+  padding: 15px;
+  border: 4px solid var(--pixel-pink);
+  box-sizing: border-box;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.calendar-header,
+.calendar-day {
+  padding: 12px;
+  text-align: center;
+  font-size: 12px;
+  border: 2px solid var(--pixel-pink);
+}
+
+.calendar-header {
+  background: var(--pixel-pink);
+  color: var(--pixel-dark);
+}
+
+.wedding-day {
+  background: var(--pixel-pink) !important;
+  color: var(--pixel-dark) !important;
+  font-weight: bold;
+  animation: flash 1s infinite;
+  box-shadow: 0 0 20px var(--pixel-pink);
+}
+
+@keyframes flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Guestbook */
+.guestbook-item {
+  padding: 20px;
+  margin-bottom: 15px;
+  border: 3px dashed var(--pixel-pink);
+  position: relative;
+  font-size: 16px;
+  font-family: 'DotGothic16', monospace;
+}
+
+.guestbook-item::before {
+  content: '▶';
+  position: absolute;
+  left: 5px;
+  color: var(--pixel-yellow);
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.guest-name {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: var(--pixel-pink);
+  font-weight: bold;
+}
+
+.guest-message {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-top: 10px;
+  font-family: 'DotGothic16', monospace;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.95);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: var(--pixel-dark);
+  border: 6px solid var(--pixel-pink);
+  padding: 30px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+  box-shadow: 
+    0 0 0 2px var(--pixel-dark),
+    0 0 0 8px var(--pixel-pink),
+    0 0 50px var(--pixel-pink);
+}
+
+.modal-content h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--pixel-pink);
+}
+
+.close:hover {
+  animation: rotate 0.5s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 15px;
+  background: var(--pixel-dark);
+  border: 3px solid var(--pixel-pink);
+  color: var(--pixel-pink);
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--pixel-pink);
+}
+
+/* Scrollbar - Retro Style */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pixel-dark);
+  border: 2px solid var(--pixel-pink);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pixel-pink);
+  border: 2px solid var(--pixel-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pixel-light-pink);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--pixel-dark);
+  border: 2px solid var(--pixel-pink);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--pixel-pink) var(--pixel-dark);
+}
+
+/* Exit Button for Retro Theme */
+.exit-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 16px;
+  color: var(--pixel-yellow);
+  text-shadow: 2px 2px 0 var(--pixel-dark);
+  z-index: 10000;
+  cursor: pointer;
+  padding: 10px;
+  background: rgba(10, 10, 10, 0.8);
+  border: 2px solid var(--pixel-yellow);
+  transition: all 0.2s ease;
+  animation: blink-text 2s ease-in-out infinite;
+}
+
+.exit-btn:hover {
+  color: var(--pixel-pink);
+  border-color: var(--pixel-pink);
+  transform: scale(1.1);
+  text-shadow: 2px 2px 0 var(--pixel-dark), 0 0 10px var(--pixel-pink);
+}
+
+@keyframes blink-text {
+  0%, 100% { 
+    opacity: 1;
+  }
+  50% { 
+    opacity: 0.7;
+  }
+}
+
+/* Only Game Masters needs flex layout */
+.game-master-buttons,
+.parent-buttons {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+}
+
+/* Share, attendance, map buttons use inline-block */
+.share-buttons,
+.attendance,
+.location > div {
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+.share-buttons button,
+.attendance button,
+.location button {
+  display: inline-block !important;
+  white-space: nowrap !important;
+  min-width: fit-content !important;
+}
+
+/* Prevent button text truncation */
+button {
+  overflow: visible !important;
+  text-overflow: clip !important;
+  white-space: nowrap !important;
+  min-width: fit-content !important;
+}
+
+/* Only Game Masters needs scaling */
+.game-master-buttons {
+  padding: 0 10px;
+  min-width: 0;
+  transform: scale(min(1, max(0.75, calc(100vw / 450px))));
+  transform-origin: center;
+}
+
+/* Title with icons - prevent cutoff */
+h3:has(.pixel-icon),
+h3 {
+  overflow: visible !important;
+  padding: 0 15px;
+  white-space: nowrap !important;
+}
+
+/* Scale down instead of wrap */
+@media (max-width: 480px) {
+  /* Only Game Masters scales */
+  .game-master-buttons {
+    transform: scale(min(0.85, max(0.7, calc(100vw / 500px))));
+    transform-origin: center;
+  }
+  
+  /* Keep button text readable */
+  button {
+    font-size: 11px !important;
+    padding: 10px 15px !important;
+  }
+  
+  .parent-contact-row {
+    transform: scale(0.85);
+    transform-origin: center;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  /* Prevent horizontal overflow */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+  
+  * {
+    max-width: 100vw !important;
+  }
+  
+  /* Mobile Parent Contact Layout - No wrap */
+  .parent-contact-row {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 5px !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .parent-info {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 5px !important;
+  }
+  
+  .retro-parent-title {
+    display: block !important;
+    color: var(--pixel-yellow) !important;
+    margin-bottom: 5px !important;
+  }
+  
+  .parent-buttons {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-end !important;
+    gap: 3px !important;
+  }
+  
+  .retro-contact-btn {
+    padding: 6px 8px !important;
+    font-size: 8px !important;
+    white-space: nowrap !important;
+    min-width: 40px !important;
+  }
+
+    /* 레트로 GAME MASTERS 타이틀 아이콘 정렬 */
+  .parents-contact.retro-section h3 .pixel-icon {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    line-height: 1;
+    margin: 0 6px;
+    transform: translateY(1px); /* 위아래 미세 정렬 */
+  }
+
+  /* 버튼/아이콘 래핑 방지 */
+  .game-master-buttons,
+  .parents-contact .parent-buttons {
+    flex-wrap: nowrap;
+  }
+
+  /* 가로폭이 좁아지면 parent row를 '세로' 스택으로 */
+  .parents-contact.retro-section .parent-contact-row {
+    display: flex;
+    flex-direction: column;       /* ✅ 세로 배치 */
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0;
+  }
+
+  /* 이름/호칭 박스 중앙 정렬 */
+  .parents-contact.retro-section .parent-info {
+    text-align: center;
+  }
+
+  /* 통화/메시지 버튼은 아래쪽에 가로로 나란히 */
+  .parents-contact.retro-section .parent-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  /* 버튼 크기/정렬 통일 */
+  .retro-contact-btn {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Game Masters only - scale instead of wrap */
+  .game-master-buttons {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    padding: 0 8px !important;
+    overflow: visible !important;
+    transform: scale(min(0.8, max(0.65, calc(100vw / 520px))));
+    transform-origin: center;
+  }
+  
+  .game-master-buttons button {
+    flex: 0 0 auto !important;
+    min-width: 45px !important;
+    padding: 5px 6px !important;
+    font-size: 8px !important;
+    white-space: nowrap !important;
+  }
+  
+  /* 픽셀 아이콘 모바일 수정 */
+  .pixel-icon {
+    transform: scale(0.8) !important;
+    margin: 0 2px !important;
+  }
+  
+  /* Fix account buttons */
+  .account-info button {
+    padding: 6px 10px !important;
+    font-size: 10px !important;
+    white-space: nowrap !important;
+  }
+  
+  /* Fix sections */
+  section {
+    padding: 20px 10px !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* Fix titles */
+  h1, h2, h3 {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  /* 길찾기 버튼 줄바꿈/깨짐 방지 */
+  .directions button {
+    white-space: nowrap;
+  }
+
+  /* 버튼이 2개 이상일 때 너무 붙지 않게 */
+  .directions .btn-row,
+  .directions div[style*="white-space: nowrap"] {
+    display: inline-flex !important;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}
+
+/* Parent Contact Layout for Desktop - Retro Theme */
+.parent-contact-wrapper {
+  margin-top: 15px;
+}
+
+.parent-contact-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.parent-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.retro-parent-title {
+  color: var(--pixel-yellow);
+  font-size: 12px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.parent-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.retro-contact-btn {
+  padding: 8px 15px;
+  font-size: 11px;
+  white-space: nowrap;
+  background: var(--pixel-pink);
+  color: var(--pixel-white);
+  border: 2px solid var(--pixel-pink);
+  cursor: pointer;
+  font-family: 'Press Start 2P', monospace;
+}
+
+.retro-contact-btn:hover {
+  background: var(--pixel-light-pink);
+  color: var(--pixel-dark);
+  border-color: var(--pixel-light-pink);
+}
+
+/* Mini Game Section */
+.minigame-section {
+  padding: 40px 20px;
+  background: var(--pixel-dark);
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+#miniGameContainer {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  body {
+    font-size: 11px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  * {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .title-section h1 {
+    font-size: 24px;
+  }
+  
+  .date {
+    font-size: 20px;
+  }
+  
+  .time, .venue {
+    font-size: 16px;
+  }
+  
+  button {
+    font-size: 12px;
+    padding: 14px 20px;
+  }
+  
+  /* Exit button mobile fix */
+  .exit-btn {
+    top: 10px !important;
+    right: 10px !important;
+    font-size: 14px !important;
+    padding: 8px !important;
+  }
+  
+  /* Calendar - scale down, no wrap */
+  .calendar-grid {
+    gap: 1px !important;
+    padding: 8px !important;
+    border: 2px solid var(--pixel-pink) !important;
+    margin: 10px auto !important;
+    transform: scale(0.9);
+    transform-origin: center;
+  }
+  
+  .calendar-header,
+  .calendar-day {
+    padding: 6px 2px !important;
+    font-size: 9px !important;
+    border: 1px solid var(--pixel-pink) !important;
+  }
+  
+  .calendar-day.wedding-day {
+    font-size: 8px !important;
+  }
+  
+  .retro-section .photo-album {
+    padding: 30px 10px !important;
+  }
+  
+  .retro-photo-slider {
+    height: auto !important; /* 9:16 비율 유지 */
+    max-width: 95vw !important;
+    margin: 0 auto 20px !important;
+  }
+  
+  .retro-photo-slider::before {
+    padding-top: 177.78% !important; /* 16/9 비율 강제 적용 */
+  }
+  
+  .retro-photo-track {
+    width: 100% !important;
+  }
+  
+  .retro-photo-track .photo-slide {
+    min-width: 100% !important;
+    padding: 10px !important;
+  }
+  
+  .retro-photo-track .photo-slide img {
+    min-width: 100% !important;
+    min-height: 100% !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: cover !important;
+    border-width: 2px !important;
+    box-shadow:
+      2px 2px 0 var(--pixel-dark),
+      4px 4px 0 var(--pixel-pink) !important;
+  }
+  
+  .slider-btn {
+    font-size: 10px;
+    padding: 12px 20px;
+  }
+
+  
+}
+
+.retro-section h3, .retro-section .subtitle, .retro-section .celebrate-text {
+  word-break: keep-all;
+}

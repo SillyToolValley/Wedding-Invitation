@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(dir:*)",
+      "Bash(firebase deploy:*)",
+      "Bash(rm:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(grep:*)",
+      "Bash(del \"C:\\Users\\USER\\Documents\\GitHub\\Wedding-Invitation\\pwa-192x192.png\")",
+      "Bash(mv:*)",
+      "Bash(npx firebase deploy:*)",
+      "Bash(cmd /c \"firebase deploy --only firestore:rules\")"
+    ],
+    "deny": []
+  }
+}

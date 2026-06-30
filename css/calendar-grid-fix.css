@@ -1,0 +1,267 @@
+/* ======================================
+   달력 그리드 레이아웃 수정 - 7개 열 정확히 배치
+   ====================================== */
+
+/* 달력 섹션 */
+.calendar {
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* 달력 그리드 - 7열 그리드 정확히 설정 */
+.calendar-grid {
+  display: grid !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important; /* minmax로 최소 크기 0 설정 */
+  gap: 2px !important;
+  width: 100% !important;
+  max-width: 420px !important;
+  margin: 0 auto !important;
+  padding: 15px !important;
+  box-sizing: border-box !important;
+}
+
+/* 각 셀 - 그리드 아이템 */
+.calendar-header,
+.calendar-day {
+  width: 100% !important;
+  aspect-ratio: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 2px !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+  font-size: 12px !important;
+  line-height: 1.2 !important;
+  overflow: hidden !important;
+  text-align: center !important;
+}
+
+/* 날짜 내부 요소 스타일 */
+.calendar-day span {
+  display: block !important;
+  width: 100% !important;
+  text-align: center !important;
+}
+
+.calendar-day span:first-child {
+  font-size: 14px !important;
+}
+
+.calendar-day span:last-child {
+  font-size: 8px !important;
+  height: 10px !important;
+}
+
+/* Modern Theme */
+.modern-section .calendar {
+  background: var(--modern-cream, #fef5f5);
+}
+
+.modern-section .calendar-grid {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.modern-section .calendar-header {
+  color: var(--modern-gray, #666);
+  font-weight: 700;
+  background: transparent;
+}
+
+.modern-section .calendar-day {
+  background: white;
+  color: var(--modern-dark, #333);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modern-section .calendar-day:hover:not(.empty) {
+  background: var(--modern-pink, #ff006e);
+  color: white;
+  transform: scale(1.05);
+}
+
+.modern-section .calendar-day.wedding-day {
+  background: var(--modern-pink, #ff006e);
+  color: white;
+  font-weight: bold;
+}
+
+/* Retro Theme */
+.retro-section .calendar {
+  background: var(--pixel-dark, #0a0a0a);
+}
+
+.retro-section .calendar-grid {
+  background: var(--pixel-dark, #0a0a0a);
+  border: 3px solid var(--pixel-pink, #ff006e);
+  box-shadow: 0 0 0 3px var(--pixel-dark), 0 0 0 6px var(--pixel-yellow);
+}
+
+.retro-section .calendar-header {
+  background: var(--pixel-pink, #ff006e);
+  color: white;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px !important;
+}
+
+.retro-section .calendar-day {
+  background: var(--pixel-dark, #0a0a0a);
+  color: var(--pixel-yellow, #ffd54a);
+  border: 1px solid var(--pixel-pink, #ff006e);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px !important;
+}
+
+.retro-section .calendar-day span:first-child {
+  font-size: 10px !important;
+}
+
+.retro-section .calendar-day span:last-child {
+  font-size: 6px !important;
+}
+
+.retro-section .calendar-day:hover:not(.empty) {
+  background: var(--pixel-pink, #ff006e);
+  color: white;
+}
+
+.retro-section .calendar-day.wedding-day {
+  background: var(--pixel-yellow, #ffd54a);
+  color: var(--pixel-dark, #0a0a0a);
+  animation: pixelBlink 2s infinite;
+}
+
+@keyframes pixelBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* 빈 날짜 */
+.calendar-day.empty {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* 일요일, 토요일 색상 */
+.calendar-day:nth-child(7n+1):not(.calendar-header):not(.empty) { /* 일요일 */
+  color: #ff0000 !important;
+}
+
+.calendar-day:nth-child(7n):not(.calendar-header):not(.empty) { /* 토요일 */
+  color: #0066cc !important;
+}
+
+.calendar-day.wedding-day {
+  color: white !important; /* 결혼식 날은 흰색 유지 */
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .calendar {
+    padding: 30px 15px;
+  }
+  
+  .calendar-grid {
+    max-width: 350px !important;
+    padding: 12px !important;
+    gap: 1px !important;
+  }
+  
+  .calendar-header,
+  .calendar-day {
+    font-size: 11px !important;
+  }
+  
+  .calendar-day span:first-child {
+    font-size: 12px !important;
+  }
+  
+  .retro-section .calendar-header {
+    font-size: 6px !important;
+  }
+  
+  .retro-section .calendar-day {
+    font-size: 8px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar {
+    padding: 25px 10px;
+  }
+  
+  .calendar-grid {
+    max-width: 300px !important;
+    padding: 10px !important;
+  }
+  
+  .calendar-header,
+  .calendar-day {
+    font-size: 10px !important;
+    padding: 1px !important;
+  }
+  
+  .calendar-day span:first-child {
+    font-size: 11px !important;
+  }
+  
+  .calendar-day span:last-child {
+    font-size: 6px !important;
+    height: 8px !important;
+  }
+  
+  .retro-section .calendar-header,
+  .retro-section .calendar-day {
+    font-size: 7px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .calendar-grid {
+    max-width: 280px !important;
+    padding: 8px !important;
+  }
+  
+  .calendar-header,
+  .calendar-day {
+    font-size: 9px !important;
+  }
+  
+  .retro-section .calendar-header,
+  .retro-section .calendar-day {
+    font-size: 6px !important;
+  }
+}
+
+/* 큰 화면 */
+@media (min-width: 1024px) {
+  .calendar-grid {
+    max-width: 440px !important;
+  }
+  
+  .calendar-header,
+  .calendar-day {
+    font-size: 14px !important;
+  }
+  
+  .calendar-day span:first-child {
+    font-size: 16px !important;
+  }
+}
+
+/* 디버그용 (필요시 활성화) */
+/*
+.calendar-grid {
+  outline: 2px solid red;
+}
+
+.calendar-day {
+  outline: 1px solid blue;
+}
+*/

@@ -1,0 +1,143 @@
+/* ======================================
+   Pixel Heart 위치 수정 - 가운데 정렬
+   ====================================== */
+
+/* Pixel Heart 기본 스타일 오버라이드 */
+.pixel-heart {
+  display: inline-block !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin: 0 8px !important;
+  position: relative !important;
+  vertical-align: middle !important;
+}
+
+/* Pixel Heart 내부 요소 가운데 정렬 */
+.pixel-heart::before {
+  content: '' !important;
+  position: absolute !important;
+  width: 4px !important;
+  height: 4px !important;
+  /* 왼쪽으로 더 이동시켜 가운데 맞춤 */
+  left: -2px !important;
+  top: 0px !important;
+  transform: none !important;
+  background: var(--pixel-pink, #ff006e) !important;
+  box-shadow:
+    4px 0 var(--pixel-pink, #ff006e),
+    12px 0 var(--pixel-pink, #ff006e),
+    16px 0 var(--pixel-pink, #ff006e),
+    0 4px var(--pixel-pink, #ff006e),
+    4px 4px var(--pixel-pink, #ff006e),
+    8px 4px var(--pixel-pink, #ff006e),
+    12px 4px var(--pixel-pink, #ff006e),
+    16px 4px var(--pixel-pink, #ff006e),
+    20px 4px var(--pixel-pink, #ff006e),
+    0 8px var(--pixel-pink, #ff006e),
+    4px 8px var(--pixel-pink, #ff006e),
+    8px 8px var(--pixel-pink, #ff006e),
+    12px 8px var(--pixel-pink, #ff006e),
+    16px 8px var(--pixel-pink, #ff006e),
+    20px 8px var(--pixel-pink, #ff006e),
+    4px 12px var(--pixel-pink, #ff006e),
+    8px 12px var(--pixel-pink, #ff006e),
+    12px 12px var(--pixel-pink, #ff006e),
+    16px 12px var(--pixel-pink, #ff006e),
+    8px 16px var(--pixel-pink, #ff006e),
+    12px 16px var(--pixel-pink, #ff006e) !important;
+  animation: heartbeat-centered 1s infinite !important;
+}
+
+/* 애니메이션 수정 */
+@keyframes heartbeat-centered {
+  0%, 100% { 
+    transform: scale(1);
+  }
+  50% { 
+    transform: scale(1.2);
+  }
+}
+
+/* celebrate-text 내부의 pixel-heart 조정 */
+.celebrate-text .pixel-heart {
+  display: inline-block !important;
+  width: clamp(16px, 3vw, 24px) !important;
+  height: clamp(16px, 3vw, 24px) !important;
+  margin: 0 clamp(6px, 1.5vw, 10px) !important;
+  vertical-align: middle !important;
+  position: relative !important;
+}
+
+/* 엔딩 크레딧의 하트 */
+.ending-credits .pixel-heart {
+  margin: 0 10px !important;
+}
+
+/* 작은 화면에서 크기 조정 */
+@media (max-width: 480px) {
+  .pixel-heart {
+    width: 16px !important;
+    height: 16px !important;
+    margin: 0 6px !important;
+  }
+  
+  .celebrate-text .pixel-heart {
+    width: clamp(14px, 4vw, 20px) !important;
+    height: clamp(14px, 4vw, 20px) !important;
+    margin: 0 clamp(4px, 2vw, 8px) !important;
+  }
+  
+  .pixel-heart::before {
+    width: 3px !important;
+    height: 3px !important;
+    /* 작은 크기에 맞춰 box-shadow 조정 */
+    box-shadow:
+      3px 0 var(--pixel-pink, #ff006e),
+      9px 0 var(--pixel-pink, #ff006e),
+      12px 0 var(--pixel-pink, #ff006e),
+      0 3px var(--pixel-pink, #ff006e),
+      3px 3px var(--pixel-pink, #ff006e),
+      6px 3px var(--pixel-pink, #ff006e),
+      9px 3px var(--pixel-pink, #ff006e),
+      12px 3px var(--pixel-pink, #ff006e),
+      15px 3px var(--pixel-pink, #ff006e),
+      0 6px var(--pixel-pink, #ff006e),
+      3px 6px var(--pixel-pink, #ff006e),
+      6px 6px var(--pixel-pink, #ff006e),
+      9px 6px var(--pixel-pink, #ff006e),
+      12px 6px var(--pixel-pink, #ff006e),
+      15px 6px var(--pixel-pink, #ff006e),
+      3px 9px var(--pixel-pink, #ff006e),
+      6px 9px var(--pixel-pink, #ff006e),
+      9px 9px var(--pixel-pink, #ff006e),
+      12px 9px var(--pixel-pink, #ff006e),
+      6px 12px var(--pixel-pink, #ff006e),
+      9px 12px var(--pixel-pink, #ff006e) !important;
+  }
+}
+
+/* 아주 작은 화면 */
+@media (max-width: 360px) {
+  .pixel-heart {
+    width: 14px !important;
+    height: 14px !important;
+    margin: 0 4px !important;
+  }
+  
+  .celebrate-text .pixel-heart {
+    width: clamp(12px, 5vw, 18px) !important;
+    height: clamp(12px, 5vw, 18px) !important;
+    margin: 0 clamp(3px, 2.5vw, 6px) !important;
+  }
+}
+
+/* 디버그용 (필요시 활성화) */
+/*
+.pixel-heart {
+  outline: 1px solid red !important;
+}
+
+.pixel-heart::before {
+  outline: 1px solid blue !important;
+}
+*/

@@ -5,36 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>권채린 ♥ 조영민 결혼합니다</title>
   <meta name="description" content="2025년 9월 27일 토요일 오전 11시, 켄싱턴호텔 여의도 15층 그랜드볼룸. 권채린 ♥ 조영민의 결혼식에 초대합니다.">
-  <meta name="theme-color" content="#fbfaf7">
 
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="권채린 ♥ 조영민, 결혼합니다">
   <meta property="og:description" content="2025년 9월 27일 토요일 오전 11시 · 켄싱턴호텔 여의도">
-  <meta property="og:image" content="assets/main.jpg">
+  <meta property="og:image" content="../assets/main.jpg">
+  <link rel="icon" href="../favicon.ico" sizes="any">
 
-  <link rel="icon" href="favicon.ico" sizes="any">
-  <link rel="manifest" href="manifest.json">
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Nanum+Myeongjo:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/quiple/galmuri/dist/galmuri.css">
 
-  <link rel="stylesheet" href="redesign/styles/tokens.css">
-  <link rel="stylesheet" href="redesign/styles/main.css">
-  <link rel="stylesheet" href="redesign/styles/effects.css">
+  <!-- Styles (single design system — legacy + 13 fix files 대체) -->
+  <link rel="stylesheet" href="styles/tokens.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/effects.css">
 </head>
 <body id="top">
   <div class="ambient" aria-hidden="true"></div>
   <div class="petals" id="petals" aria-hidden="true"></div>
+  <div class="balloons" id="balloons" aria-hidden="true"></div>
   <canvas class="retro-fx" id="retroFx" aria-hidden="true"></canvas>
   <div class="progress" id="progress" aria-hidden="true"></div>
 
   <button class="theme-toggle" id="themeToggle" type="button" aria-label="게임 테마 전환">게임 모드</button>
 
   <main class="page">
+
+    <!-- HERO -->
     <header class="hero">
-      <div class="hero__photo"><img id="heroPhoto" src="assets/main.jpg" alt="신랑 신부 사진"></div>
+      <div class="hero__photo"><img id="heroPhoto" src="../assets/main.jpg" alt="신랑 신부 사진"></div>
       <div class="hero__top">
         <span class="hero__date-top" id="heroDateTop">2025. 09. 27</span>
       </div>
@@ -45,15 +49,17 @@
       </div>
     </header>
 
+    <!-- INVITATION -->
     <section class="section section--panel" id="invite">
       <div class="section__head" data-reveal>
         <span class="eyebrow" data-retro="STAGE 1 : INVITATION">Invitation</span>
-        <div class="divider"><img class="divider__rings" src="assets/icons/diamond-ring.png" alt="" aria-hidden="true"></div>
+        <div class="divider"><img class="divider__rings" src="../assets/icons/diamond-ring.png" alt="" aria-hidden="true"></div>
       </div>
       <p class="invite__msg" id="inviteMsg" data-reveal></p>
       <div class="invite__families" id="inviteFamilies" data-reveal></div>
     </section>
 
+    <!-- DATE : calendar + countdown -->
     <section class="section section--tint" id="date">
       <div class="section__head" data-reveal>
         <span class="eyebrow" data-retro="STAGE INFO">The Date</span>
@@ -67,6 +73,7 @@
       <p class="countdown__note" id="countdownNote" data-reveal></p>
     </section>
 
+    <!-- GALLERY -->
     <section class="section section--panel" id="gallery">
       <div class="section__head" data-reveal>
         <span class="eyebrow" data-retro="MEMORY ALBUM">Gallery</span>
@@ -80,6 +87,7 @@
       <div class="gallery__dots" id="galleryDots"></div>
     </section>
 
+    <!-- LOCATION -->
     <section class="section section--tint" id="location">
       <div class="section__head" data-reveal>
         <span class="eyebrow" data-retro="GAME LOCATION">Location</span>
@@ -96,6 +104,7 @@
       <div class="transit mt-3" id="transit"></div>
     </section>
 
+    <!-- CONTACT -->
     <section class="section section--panel" id="contact">
       <div class="section__head" data-reveal>
         <span class="eyebrow" data-retro="GAME MASTERS">Contact</span>
@@ -104,6 +113,7 @@
       <div class="contact-grid" id="parentsContact"></div>
     </section>
 
+    <!-- RSVP -->
     <section class="section section--tint" id="rsvp">
       <div class="section__head" data-reveal>
         <span class="eyebrow" data-retro="JOIN THE QUEST">R.S.V.P</span>
@@ -113,12 +123,13 @@
       <button class="btn btn--primary btn--lg mt-3" data-open="#rsvpModal" type="button" data-reveal data-retro="♥ RSVP NOW ♥">참석 의사 전하기</button>
     </section>
 
+    <!-- GUESTBOOK -->
     <section class="section section--panel" id="guestbook">
       <div class="section__head" data-reveal>
         <span class="eyebrow" data-retro="GUEST BOOK">Guestbook</span>
         <h2 class="section-title" data-retro="PLAYER MESSAGES">축하 메시지</h2>
       </div>
-      <button class="btn btn--ghost" data-open="#gbModal" type="button" data-reveal data-retro="WRITE MESSAGE">메시지 남기기</button>
+      <button class="btn btn--ghost" data-open="#gbModal" type="button" data-reveal data-retro="✍️ WRITE MESSAGE">✍️ 메시지 남기기</button>
       <div class="gb__list" id="gbList" data-reveal></div>
       <div class="gb__pager">
         <button class="pager-btn" id="gbPrev" aria-label="이전">‹</button>
@@ -127,6 +138,7 @@
       </div>
     </section>
 
+    <!-- ACCOUNTS -->
     <section class="section section--tint" id="accounts-sec">
       <div class="section__head" data-reveal>
         <span class="eyebrow" data-retro="SUPPORT PLAYERS">With Heart</span>
@@ -136,6 +148,7 @@
       <div class="accordion mt-3" id="accounts" data-reveal></div>
     </section>
 
+    <!-- SHARE -->
     <section class="section section--panel" id="share">
       <div class="map-btns" data-reveal>
         <button class="btn btn--primary btn--block" data-share="native" type="button" data-retro="KAKAO SHARE">청첩장 공유하기</button>
@@ -143,6 +156,7 @@
       </div>
     </section>
 
+    <!-- MINIGAME (retro only) -->
     <section class="section retro-only" id="minigame">
       <div class="section__head">
         <span class="eyebrow">Bonus Stage</span>
@@ -154,19 +168,22 @@
         <div class="ctrl"><b>Jump (SPACE / ↑)</b> : 점프 (2단 점프 가능)</div>
         <div class="ctrl"><b>Slam (K / ↓)</b> : 공중에서 내려찍기<small>잠시 무적 상태가 되고 근처 지뢰를 파괴합니다.</small></div>
         <div class="ctrl"><b>Atk (J)</b> : 공격<small>신랑은 칼로 지뢰와 공중 드론을 파괴합니다.</small><small>신부는 머신건으로 멀리 있는 드론을 공격합니다.</small></div>
-        <div class="note">모바일은 화면 버튼으로 조작</div>
+        <div class="note">※ 모바일은 화면 버튼으로 조작</div>
       </div>
       <div class="minigame-mount"><div id="miniGameContainer"></div></div>
     </section>
 
+    <!-- CLOSING -->
     <footer class="closing">
       <p class="closing__msg" id="closingMsg" data-reveal></p>
       <div class="closing__names" id="closingNames" data-reveal></div>
       <div class="closing__date" id="closingDate" data-reveal></div>
       <p class="closing__date closing__retro-note retro-only">♪ STAGE CLEAR ♪<br>SEE YOU AT THE WEDDING!</p>
     </footer>
+
   </main>
 
+  <!-- BOTTOM APPBAR -->
   <nav class="appbar" id="appbar" aria-label="빠른 이동">
     <a class="appbar__btn" href="#top" data-retro="HOME">홈</a>
     <a class="appbar__btn" href="#date" data-retro="INFO">일정</a>
@@ -175,6 +192,7 @@
     <button class="appbar__btn appbar__btn--accent" data-open="#rsvpModal" type="button" data-retro="JOIN">참석</button>
   </nav>
 
+  <!-- RSVP MODAL -->
   <div class="modal" id="rsvpModal" role="dialog" aria-modal="true" aria-label="참석 여부">
     <div class="modal__scrim"></div>
     <div class="modal__panel">
@@ -200,6 +218,7 @@
     </div>
   </div>
 
+  <!-- GUESTBOOK MODAL -->
   <div class="modal" id="gbModal" role="dialog" aria-modal="true" aria-label="축하 메시지 작성">
     <div class="modal__scrim"></div>
     <div class="modal__panel">
@@ -213,6 +232,7 @@
     </div>
   </div>
 
+  <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="사진 크게 보기">
     <button class="lightbox__close" id="lightboxClose" aria-label="닫기">×</button>
     <img id="lightboxImg" src="" alt="확대 사진">
@@ -220,6 +240,6 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script type="module" src="redesign/scripts/main.js"></script>
+  <script type="module" src="scripts/main.js"></script>
 </body>
 </html>

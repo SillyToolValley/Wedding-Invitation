@@ -1,0 +1,119 @@
+/* ====================================
+   MODERN THEME - BUTTONS & FORMS
+   ==================================== */
+
+/* Base Button Styles */
+.modern-section button {
+  font-family: 'Noto Sans KR', sans-serif;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Primary Button */
+.modern-section .btn-primary {
+  padding: 12px 30px;
+  background: var(--modern-rose);
+  color: white;
+  border-radius: 25px;
+  font-weight: 500;
+  box-shadow: 0 2px 10px rgba(232, 160, 160, 0.3);
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+.modern-section .btn-primary:hover {
+  background: var(--modern-pink);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(232, 160, 160, 0.5);
+}
+
+/* Secondary Button */
+.modern-section .btn-secondary {
+  padding: 12px 30px;
+  background: transparent;
+  color: var(--modern-rose);
+  border: 2px solid var(--modern-rose);
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+}
+
+.modern-section .btn-secondary:hover {
+  background: var(--modern-rose);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(232, 160, 160, 0.3);
+}
+
+/* Contact Buttons */
+.modern-section .contact-btn {
+  padding: 10px 20px;
+  background: var(--modern-light-gray);
+  color: var(--modern-dark);
+  border-radius: 20px;
+  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+  margin: 5px;
+}
+
+.modern-section .contact-btn:hover {
+  background: var(--modern-rose);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Share Buttons */
+.modern-section .share-btn {
+  padding: 15px 40px;
+  background: linear-gradient(135deg, var(--modern-rose), var(--modern-pink));
+  color: white;
+  border-radius: 30px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(232, 160, 160, 0.4);
+  margin: 10px;
+}
+
+.modern-section .share-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(232, 160, 160, 0.6);
+}
+
+/* Attendance Button */
+.modern-section .attendance button {
+  padding: 20px 50px;
+  background: var(--modern-rose);
+  color: white;
+  border-radius: 30px;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(232, 160, 160, 0.4);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.modern-section .attendance button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(232, 160, 160, 0.6);
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+/* Submit Buttons */
+.modern-section .submit-btn {
+  width: 100%;
+  padding: 15px;
+  background: var(--modern-rose);
+  color: white;
+  border-radius: 10px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.modern-section .submit-btn:hover {
+  background: var(--modern-pink);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(232, 160, 160, 0.5);
+}

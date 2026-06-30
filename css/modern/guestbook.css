@@ -1,0 +1,130 @@
+/* ====================================
+   MODERN THEME - GUESTBOOK
+   ==================================== */
+
+.modern-section .guestbook {
+  background: var(--modern-cream);
+  padding: 60px 20px;
+}
+
+.modern-section .guestbook h3 {
+  text-align: center;
+  color: var(--modern-dark);
+  margin-bottom: 40px;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.modern-section .guestbook-form {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  padding: 30px;
+  background: var(--modern-white);
+  border-radius: 20px;
+  box-shadow: var(--modern-shadow);
+}
+
+.modern-section .form-group {
+  margin-bottom: 25px;
+}
+
+.modern-section .form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--modern-dark);
+  font-weight: 500;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+}
+
+.modern-section .form-group input,
+.modern-section .form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid var(--modern-light-gray);
+  border-radius: 10px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+  transition: all 0.3s ease;
+}
+
+.modern-section .form-group input:focus,
+.modern-section .form-group textarea:focus {
+  outline: none;
+  border-color: var(--modern-rose);
+  box-shadow: 0 0 0 3px rgba(232, 160, 160, 0.1);
+}
+
+.modern-section .form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Guestbook List */
+.modern-section .guestbook-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.modern-section .guestbook-item {
+  background: var(--modern-white);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 0.5s ease;
+}
+
+.modern-section .guest-name {
+  font-weight: 600;
+  color: var(--modern-rose);
+  margin-bottom: 10px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.modern-section .guest-message {
+  color: var(--modern-gray);
+  line-height: 1.8;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+}
+
+.modern-section .guest-date {
+  text-align: right;
+  color: var(--modern-gray);
+  font-size: 0.85em;
+  margin-top: 10px;
+  opacity: 0.7;
+}
+
+/* Pagination */
+.modern-section .guestbook-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.modern-section .page-btn {
+  padding: 8px 20px;
+  background: var(--modern-rose);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+}
+
+.modern-section .page-btn:hover:not(:disabled) {
+  background: var(--modern-pink);
+  transform: translateY(-2px);
+}
+
+.modern-section .page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.modern-section .page-info {
+  color: var(--modern-gray);
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+}

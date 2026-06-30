@@ -1,0 +1,218 @@
+/* ======================================
+   혼주 연락처 세로 레이아웃 - 부모님 성함 영역 확대
+   ====================================== */
+
+/* Modern 혼주 연락처 - Retro와 동일한 박스 스타일 */
+.modern-section .parent-contact-row {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 20px !important;
+  margin: 15px auto !important;
+  max-width: 350px !important;
+  box-sizing: border-box !important;
+  border: 2px solid var(--modern-pink, #ff69b4) !important;
+  border-radius: 10px !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2) !important;
+}
+
+/* 부모님 정보 영역 - 전체 너비 사용 */
+.modern-section .parent-info {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 12px !important;
+}
+
+/* 부모님 타이틀 (아버지/어머니) */
+.modern-section .parent-title {
+  font-size: clamp(10px, 2.2vw, 13px) !important;
+  color: var(--modern-gray, #666) !important;
+  margin-bottom: 8px !important;
+  white-space: nowrap !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+
+/* 부모님 성함 - 크게 표시 */
+.modern-section .parent-name {
+  font-size: clamp(14px, 3.2vw, 18px) !important;
+  font-weight: bold !important;
+  color: var(--modern-pink, #ff69b4) !important;
+  white-space: nowrap !important;
+  margin-bottom: 12px !important;
+}
+
+/* 연락 버튼들 - 이름 아래 가로 배치 */
+.modern-section .parent-buttons {
+  display: flex !important;
+  gap: 8px !important;
+  justify-content: center !important;
+}
+
+.modern-section .contact-btn {
+  padding: 8px 14px !important;
+  font-size: clamp(10px, 2.2vw, 12px) !important;
+  white-space: nowrap !important;
+  border-radius: 20px !important;
+  background: white !important;
+  color: var(--modern-pink, #ff69b4) !important;
+  border: 2px solid var(--modern-pink, #ff69b4) !important;
+  cursor: pointer !important;
+  transition: all 0.3s !important;
+  font-weight: 600 !important;
+}
+
+.modern-section .contact-btn:hover {
+  background: var(--modern-pink, #ff69b4) !important;
+  color: white !important;
+  transform: scale(1.05) !important;
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3) !important;
+}
+
+/* Retro 혼주 연락처 - 세로 레이아웃 */
+.retro-section .parent-contact-row {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 15px !important;
+  margin: 10px auto !important;
+  max-width: 350px !important;
+  box-sizing: border-box !important;
+  border: 2px solid var(--pixel-pink, #ff006e) !important;
+  background: rgba(10, 10, 10, 0.8) !important;
+}
+
+/* Retro 부모님 정보 영역 */
+.retro-section .parent-info {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 10px !important;
+}
+
+/* Retro 부모님 타이틀 */
+.retro-section .retro-parent-title {
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: clamp(8px, 2vw, 11px) !important;
+  color: var(--pixel-yellow, #ffde00) !important;
+  margin-bottom: 8px !important;
+  white-space: nowrap !important;
+  text-transform: uppercase !important;
+}
+
+/* Retro 부모님 성함 */
+.retro-section .parent-name {
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: clamp(12px, 3vw, 16px) !important;
+  color: var(--pixel-cyan, #00ffff) !important;
+  white-space: nowrap !important;
+  margin-bottom: 10px !important;
+  text-shadow: 2px 2px 0 var(--pixel-pink, #ff006e) !important;
+}
+
+/* Retro 연락 버튼들 */
+.retro-section .parent-buttons {
+  display: flex !important;
+  gap: 10px !important;
+  justify-content: center !important;
+}
+
+.retro-section .retro-contact-btn {
+  padding: 8px 12px !important;
+  font-family: 'Press Start 2P', monospace !important;
+  font-size: clamp(7px, 1.8vw, 10px) !important;
+  background: var(--pixel-dark, #0a0a0a) !important;
+  border: 2px solid var(--pixel-pink, #ff006e) !important;
+  color: var(--pixel-yellow, #ffde00) !important;
+  cursor: pointer !important;
+  transition: all 0.1s !important;
+  white-space: nowrap !important;
+}
+
+.retro-section .retro-contact-btn:hover {
+  background: var(--pixel-pink, #ff006e) !important;
+  color: white !important;
+  transform: scale(1.1) !important;
+}
+
+.retro-section .retro-contact-btn:active {
+  transform: scale(0.95) !important;
+}
+
+/* 작은 화면에서 조정 */
+@media (max-width: 480px) {
+  .modern-section .parent-name {
+    font-size: clamp(14px, 4vw, 18px) !important;
+  }
+  
+  .modern-section .contact-btn {
+    padding: 6px 12px !important;
+    font-size: clamp(10px, 2.5vw, 12px) !important;
+  }
+  
+  .retro-section .parent-name {
+    font-size: clamp(10px, 3.5vw, 14px) !important;
+  }
+  
+  .retro-section .retro-contact-btn {
+    padding: 6px 10px !important;
+    font-size: clamp(6px, 2vw, 9px) !important;
+  }
+}
+
+/* 아주 작은 화면 */
+@media (max-width: 360px) {
+  .modern-section .parent-contact-row,
+  .retro-section .parent-contact-row {
+    padding: 12px 10px !important;
+  }
+  
+  .modern-section .parent-name {
+    font-size: clamp(13px, 4.5vw, 16px) !important;
+  }
+  
+  .retro-section .parent-name {
+    font-size: clamp(9px, 4vw, 12px) !important;
+  }
+}
+
+/* 큰 화면에서도 적절한 크기 유지 */
+@media (min-width: 768px) {
+  .modern-section .parent-name {
+    font-size: 20px !important;
+  }
+  
+  .modern-section .contact-btn {
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+  }
+  
+  .retro-section .parent-name {
+    font-size: 16px !important;
+  }
+  
+  .retro-section .retro-contact-btn {
+    padding: 10px 15px !important;
+    font-size: 10px !important;
+  }
+}
+
+/* 아이콘 크기 조정 */
+.contact-btn,
+.retro-contact-btn {
+  font-family: inherit !important;
+}
+
+/* 버튼 안 이모지 크기 */
+.contact-btn::before,
+.retro-contact-btn::before {
+  font-size: 1.2em !important;
+}

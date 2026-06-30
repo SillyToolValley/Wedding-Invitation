@@ -1,0 +1,326 @@
+/* ======================================
+   참석 여부 폼 개선
+   ====================================== */
+
+/* 참석 여부 모달 개선 */
+#attendanceModal .modal-content {
+  max-width: 500px;
+  padding: 30px;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+#attendanceModal h3 {
+  text-align: center;
+  color: var(--modern-pink, #ff006e);
+  margin-bottom: 25px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* 폼 그룹 스타일링 */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+}
+
+.form-group label .required {
+  color: #ff006e;
+  margin-left: 2px;
+}
+
+/* 입력 필드 개선 */
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--modern-pink, #ff006e);
+  box-shadow: 0 0 0 3px rgba(255, 0, 110, 0.1);
+}
+
+/* 라디오 버튼 그룹 개선 */
+.radio-group {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.radio-item {
+  flex: 1;
+  min-width: 120px;
+}
+
+.radio-item input[type="radio"] {
+  display: none;
+}
+
+.radio-item label {
+  display: block;
+  padding: 12px;
+  text-align: center;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 0 !important;
+}
+
+.radio-item input[type="radio"]:checked + label {
+  background: var(--modern-pink, #ff006e);
+  color: white;
+  border-color: var(--modern-pink, #ff006e);
+}
+
+.radio-item label:hover {
+  border-color: var(--modern-pink, #ff006e);
+  background: rgba(255, 0, 110, 0.05);
+}
+
+/* 참석 인원 선택 개선 */
+.attendance-counter {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.counter-btn {
+  width: 36px;
+  height: 36px;
+  border: 2px solid #e0e0e0;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: #666;
+}
+
+.counter-btn:hover {
+  border-color: var(--modern-pink, #ff006e);
+  background: rgba(255, 0, 110, 0.1);
+  color: var(--modern-pink, #ff006e);
+}
+
+.counter-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.counter-value {
+  min-width: 80px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 식사 여부 선택 */
+.meal-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* 제출 버튼 개선 */
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  background: var(--modern-pink, #ff006e);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+.submit-btn:hover {
+  background: #e6005c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 0, 110, 0.3);
+}
+
+.submit-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 성공 메시지 */
+.success-message {
+  background: #4CAF50;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.error-message {
+  background: #f44336;
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  margin-top: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 참석 의사 표시 섹션 개선 */
+.rsvp-section {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #ffeef5 0%, #fff 100%);
+  text-align: center;
+}
+
+.rsvp-section h3 {
+  color: var(--modern-pink, #ff006e);
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.rsvp-section p {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rsvp-button {
+  display: inline-block;
+  padding: 15px 40px;
+  background: var(--modern-pink, #ff006e);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.rsvp-button:hover {
+  background: #e6005c;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255, 0, 110, 0.3);
+}
+
+/* 레트로 테마 RSVP 스타일 */
+.retro-section .rsvp-section {
+  background: var(--pixel-dark, #0a0a0a);
+  padding: 40px 20px;
+}
+
+.retro-section .rsvp-button {
+  background: var(--pixel-yellow, #ffd54a);
+  color: var(--pixel-dark, #0a0a0a);
+  border: 3px solid var(--pixel-dark, #0a0a0a);
+  border-radius: 0;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  padding: 12px 20px;
+}
+
+.retro-section .rsvp-button:hover {
+  background: var(--pixel-pink, #ff006e);
+  color: white;
+  transform: scale(1.05);
+}
+
+/* 반응형 조정 */
+@media (max-width: 768px) {
+  #attendanceModal .modal-content {
+    max-width: 95%;
+    padding: 20px;
+  }
+  
+  .radio-group {
+    flex-direction: column;
+  }
+  
+  .radio-item {
+    width: 100%;
+  }
+  
+  .meal-options {
+    grid-template-columns: 1fr;
+  }
+  
+  .rsvp-section {
+    padding: 40px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  #attendanceModal h3 {
+    font-size: 18px;
+  }
+  
+  .form-group label {
+    font-size: 13px;
+  }
+  
+  .submit-btn {
+    font-size: 14px;
+    padding: 12px;
+  }
+  
+  .counter-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+  
+  .counter-value {
+    font-size: 16px;
+    min-width: 60px;
+  }
+}

@@ -1,0 +1,120 @@
+/* ======================================
+   혼주 연락처 그룹 테두리 스타일
+   ====================================== */
+
+/* Modern 신랑측/신부측 그룹 박스 스타일 */
+.modern-section .parents-contact > div {
+  margin-bottom: 30px !important;
+}
+
+.modern-section .parents-contact > div > div:first-child {
+  text-align: center !important;
+  margin-bottom: 15px !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  color: var(--modern-pink, #ff69b4) !important;
+}
+
+.modern-section .parents-contact > div > div:last-child {
+  padding: 20px !important;
+  border: 3px solid var(--modern-pink, #ff69b4) !important;
+  border-radius: 15px !important;
+  background: linear-gradient(135deg, rgba(255, 245, 245, 0.5), rgba(255, 235, 240, 0.5)) !important;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.15) !important;
+}
+
+/* Retro 신랑측/신부측 그룹 박스 스타일 */
+.retro-section .parents-contact > div {
+  margin-bottom: 30px !important;
+}
+
+.retro-section .parents-contact > div > div:first-child {
+  text-align: center !important;
+  margin-bottom: 15px !important;
+  font-size: 14px !important;
+  font-family: 'Press Start 2P', monospace !important;
+  color: var(--pixel-yellow, #ffde00) !important;
+  text-transform: uppercase !important;
+  text-shadow: 2px 2px 0 var(--pixel-pink, #ff006e) !important;
+}
+
+.retro-section .parents-contact > div > div:last-child {
+  padding: 20px !important;
+  border: 3px dashed var(--pixel-pink, #ff006e) !important;
+  background: rgba(10, 10, 10, 0.9) !important;
+  box-shadow: 
+    0 0 0 3px var(--pixel-dark, #0a0a0a),
+    0 0 0 6px var(--pixel-yellow, #ffde00) !important;
+  position: relative !important;
+}
+
+/* Modern 개별 카드 간격 조정 */
+.modern-section .parent-contact-wrapper {
+  gap: 15px !important;
+}
+
+/* Retro 개별 카드 간격 조정 */
+.retro-section .parent-contact-wrapper,
+.retro-section .game-master-buttons {
+  gap: 12px !important;
+}
+
+/* 모바일에서 그룹 박스 패딩 조정 */
+@media (max-width: 480px) {
+  .modern-section .parents-contact > div > div:last-child,
+  .retro-section .parents-contact > div > div:last-child {
+    padding: 15px 10px !important;
+  }
+  
+  .modern-section .parent-contact-row,
+  .retro-section .parent-contact-row {
+    margin-bottom: 10px !important;
+  }
+  
+  .modern-section .parent-contact-row:last-child,
+  .retro-section .parent-contact-row:last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* 아주 작은 화면 */
+@media (max-width: 360px) {
+  .modern-section .parents-contact > div > div:last-child,
+  .retro-section .parents-contact > div > div:last-child {
+    padding: 12px 8px !important;
+  }
+  
+  .modern-section .parents-contact > div > div:first-child {
+    font-size: 14px !important;
+    margin-bottom: 10px !important;
+  }
+  
+  .retro-section .parents-contact > div > div:first-child {
+    font-size: 12px !important;
+    margin-bottom: 10px !important;
+  }
+}
+
+/* 픽셀 코너 효과 (Retro 전용) */
+.retro-section .parents-contact > div > div:last-child::before,
+.retro-section .parents-contact > div > div:last-child::after {
+  content: '' !important;
+  position: absolute !important;
+  width: 10px !important;
+  height: 10px !important;
+  border: 2px solid var(--pixel-yellow, #ffde00) !important;
+}
+
+.retro-section .parents-contact > div > div:last-child::before {
+  top: -5px !important;
+  left: -5px !important;
+  border-right: none !important;
+  border-bottom: none !important;
+}
+
+.retro-section .parents-contact > div > div:last-child::after {
+  bottom: -5px !important;
+  right: -5px !important;
+  border-left: none !important;
+  border-top: none !important;
+}

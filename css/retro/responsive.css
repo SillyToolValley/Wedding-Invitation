@@ -1,0 +1,91 @@
+/* ====================================
+   RETRO THEME - RESPONSIVE
+   ==================================== */
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .retro-section {
+    font-size: 18px;
+  }
+  
+  .retro-section h1 {
+    font-size: 24px;
+  }
+  
+  .retro-section h2 {
+    font-size: 18px;
+  }
+  
+  .retro-section h3 {
+    font-size: 14px;
+  }
+  
+  .retro-section .calendar-grid {
+    gap: 1px;
+    padding: 8px;
+    border: 2px solid var(--pixel-pink);
+  }
+  
+  .retro-section .calendar-header,
+  .retro-section .calendar-day {
+    padding: 6px 2px;
+    font-size: 9px;
+    border: 1px solid var(--pixel-pink);
+  }
+  
+  .retro-section button {
+    font-size: 10px;
+    padding: 10px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .retro-section .container {
+    padding: 10px;
+  }
+  
+  .retro-section .invitation-msg,
+  .retro-section .calendar,
+  .retro-section .photo-album {
+    margin: 20px 10px;
+    padding: 20px 15px;
+  }
+  
+  .retro-section .slider-btn {
+    padding: 8px 12px;
+    font-size: 10px;
+  }
+  
+  .retro-section .share-btn {
+    padding: 15px 25px;
+    font-size: 10px;
+  }
+  
+  .retro-section .attendance button {
+    padding: 15px 30px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .retro-section h1 {
+    font-size: 18px;
+  }
+  
+  .retro-section h2 {
+    font-size: 14px;
+  }
+  
+  .retro-section h3 {
+    font-size: 12px;
+  }
+  
+  .retro-section p {
+    font-size: 16px;
+  }
+  
+  .retro-section .calendar-grid {
+    transform: scale(0.9);
+    transform-origin: center;
+  }
+}

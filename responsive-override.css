@@ -1,0 +1,878 @@
+/* ====================================
+   RESPONSIVE OVERRIDE STYLES
+   Horizontal Layout Based Scaling
+   ==================================== */
+
+/* Base HTML Font Size - All rem units scale from this */
+html {
+  font-size: clamp(10px, 2.5vw, 18px);
+}
+
+/* Modern Theme Responsive Overrides */
+.modern-section h1,
+.modern-section .wedding-title {
+  font-size: clamp(20px, 5vw, 36px) !important;
+  letter-spacing: clamp(1px, 0.3vw, 3px) !important;
+}
+
+.modern-section h2 {
+  font-size: clamp(16px, 3.5vw, 28px) !important;
+}
+
+.modern-section h3 {
+  font-size: clamp(14px, 3vw, 24px) !important;
+}
+
+.modern-section p,
+.modern-section div {
+  font-size: clamp(11px, 2.3vw, 16px) !important;
+}
+
+/* Button Responsive Scaling */
+button {
+  font-size: clamp(10px, 2.5vw, 16px) !important;
+  padding: clamp(8px, 1.5vw, 15px) clamp(15px, 3vw, 40px) !important;
+  white-space: nowrap !important;
+}
+
+.modern-section .game-mode-btn {
+  font-size: clamp(10px, 2.3vw, 14px) !important;
+  padding: clamp(8px, 1.5vw, 12px) clamp(12px, 2.5vw, 20px) !important;
+}
+
+.retro-section .game-mode-btn {
+  display: none !important;
+}
+
+.contact-btn {
+  font-size: clamp(9px, 2vw, 13px) !important;
+  padding: clamp(6px, 1.2vw, 8px) clamp(10px, 2vw, 12px) !important;
+  max-width: 55px !important;
+  height: 36px !important;
+}
+
+.slider-btn {
+  font-size: clamp(10px, 2.3vw, 14px) !important;
+  padding: clamp(8px, 1.8vw, 12px) clamp(15px, 2.8vw, 24px) !important;
+}
+
+.share-btn {
+  font-size: clamp(11px, 2.8vw, 16px) !important;
+  padding: clamp(12px, 2.5vw, 20px) clamp(20px, 4vw, 40px) !important;
+}
+
+/* Calendar Responsive */
+.calendar-header {
+  font-size: clamp(9px, 1.8vw, 12px) !important;
+  padding: clamp(4px, 0.8vw, 10px) !important;
+}
+
+.calendar-day {
+  font-size: clamp(10px, 2vw, 14px) !important;
+  padding: clamp(4px, 0.8vw, 10px) !important;
+}
+
+/* Photo Counter */
+#photoCounter,
+#photoCounter2 {
+  font-size: clamp(11px, 2.3vw, 16px) !important;
+}
+
+/* Guestbook */
+.guest-name {
+  font-size: clamp(11px, 2.3vw, 16px) !important;
+}
+
+.guest-message {
+  font-size: clamp(10px, 2vw, 14px) !important;
+}
+
+/* Modal Content */
+.modal-content h3 {
+  font-size: clamp(14px, 3vw, 24px) !important;
+}
+
+.modal-content label {
+  font-size: clamp(10px, 2vw, 14px) !important;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+  font-size: clamp(10px, 2vw, 14px) !important;
+  padding: clamp(8px, 1.5vw, 12px) !important;
+}
+
+/* Account Info */
+.account-group h4 {
+  font-size: clamp(12px, 2.5vw, 18px) !important;
+}
+
+.account-item div {
+  font-size: clamp(10px, 2vw, 14px) !important;
+}
+
+/* Retro Theme Responsive Overrides */
+.retro-section {
+  font-size: clamp(10px, 2.3vw, 14px) !important;
+}
+
+.retro-section h1 {
+  font-size: clamp(16px, 4vw, 32px) !important;
+}
+
+.retro-section h2 {
+  font-size: clamp(14px, 3.5vw, 24px) !important;
+}
+
+.retro-section h3 {
+  font-size: clamp(12px, 3vw, 20px) !important;
+}
+
+.retro-section button {
+  font-size: clamp(9px, 2.2vw, 14px) !important;
+  padding: clamp(10px, 2vw, 16px) clamp(15px, 3vw, 24px) !important;
+}
+
+.retro-contact-btn {
+  font-size: clamp(8px, 1.8vw, 12px) !important;
+  padding: clamp(6px, 1.2vw, 10px) clamp(8px, 1.8vw, 15px) !important;
+}
+
+/* Title Section Special */
+.title-section .wedding-title {
+  font-size: clamp(18px, 4.5vw, 36px) !important;
+}
+
+.title-section .subtitle {
+  font-size: clamp(11px, 2.5vw, 18px) !important;
+}
+
+.celebrate-text {
+  font-size: clamp(16px, 4vw, 32px) !important;
+}
+
+/* Wedding Info Section */
+.wedding-info .date {
+  font-size: clamp(14px, 3.5vw, 24px) !important;
+}
+
+.wedding-info .time,
+.wedding-info .venue {
+  font-size: clamp(12px, 2.5vw, 18px) !important;
+}
+
+/* Invitation Message */
+.invitation-msg p {
+  font-size: clamp(11px, 2.3vw, 16px) !important;
+  line-height: 1.8 !important;
+}
+
+/* Container Width Control - PC overflow 방지 */
+.container {
+  width: 100%;
+  max-width: min(480px, 100vw);
+  margin: 0 auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Prevent Text Wrapping on Small Screens */
+@media (max-width: 480px) {
+  .wedding-title,
+  .celebrate-text {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  
+  /* If text is too long, scale it down */
+  .wedding-title {
+    transform: scale(0.9);
+    transform-origin: center;
+  }
+  
+  button {
+    font-size: clamp(8px, 2.5vw, 12px) !important;
+  }
+  
+  /* 모바일에서 9:16 비율 조정 */
+  .photo-slider {
+    max-width: 100% !important;
+    padding: 0 10px !important;
+  }
+}
+
+/* 태블릿 및 가로 모드 */
+@media (min-width: 768px) and (orientation: landscape) {
+  .photo-slider {
+    max-width: min(350px, 50vw) !important;
+  }
+}
+
+/* Ensure Minimum Readable Sizes */
+* {
+  min-font-size: 9px;
+}
+
+/* Panel and Section Padding Responsive */
+section {
+  padding: clamp(20px, 4vw, 60px) clamp(15px, 3vw, 30px) !important;
+}
+
+.modal-content {
+  padding: clamp(20px, 4vw, 40px) !important;
+}
+
+.account-group,
+.guestbook-page-container {
+  padding: clamp(15px, 3vw, 30px) !important;
+}
+
+/* Fix Photo Gallery - 9:16 Ratio Responsive */
+.photo-album {
+  overflow: visible !important;
+  max-height: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* Modern Theme Photo Slider */
+.modern-section .photo-slider {
+  position: relative !important;
+  width: 100% !important;
+  max-width: min(450px, 90vw) !important;
+  margin: 0 auto 20px !important;
+  height: auto !important;
+  min-height: unset !important;
+  max-height: unset !important;
+}
+
+/* 9:16 비율 유지 - Modern Theme */
+.modern-section .photo-slider::before {
+  content: '' !important;
+  display: block !important;
+  padding-top: 177.78% !important;
+}
+
+/* 모바일에서도 비율 유지 */
+@media (max-width: 768px) {
+  .modern-section .photo-slider {
+    height: auto !important;
+    min-height: unset !important;
+    max-height: unset !important;
+  }
+  
+  .modern-section .photo-slide {
+    min-height: unset !important;
+    max-height: unset !important;
+  }
+}
+
+.photo-track {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+.photo-slide {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 20px !important;
+  opacity: 0 !important;
+}
+
+.photo-slide.active {
+  opacity: 1 !important;
+}
+
+.photo-slide img {
+  max-width: calc(100% - 40px) !important;
+  max-height: calc(100% - 40px) !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+/* Show slider controls */
+.slider-controls {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 20px !important;
+  margin-top: 20px !important;
+}
+
+/* Ensure Retro Theme Elements Scale */
+.pixel-heart {
+  width: clamp(16px, 3vw, 24px) !important;
+  height: clamp(16px, 3vw, 24px) !important;
+  margin: 0 clamp(6px, 1.5vw, 10px) !important;
+}
+
+/* Retro Theme Photo Album Fix */
+.retro-section .photo-album {
+  padding: 40px 10px !important;
+}
+
+.retro-photo-slider {
+  max-width: min(450px, 95vw) !important;
+  margin: 0 auto 20px !important;
+}
+
+.retro-photo-track .photo-slide {
+  background: var(--pixel-dark, #0a0a0a) !important;
+}
+
+.pixel-icon {
+  width: clamp(20px, 4vw, 32px) !important;
+  height: clamp(20px, 4vw, 32px) !important;
+}
+
+
+/* Game Masters section only - needs special handling */
+.game-master-buttons,
+.parent-buttons,
+.parent-contact-row {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  justify-content: center !important;
+  overflow: visible !important;
+  white-space: nowrap !important;
+}
+
+/* Share, Map, Join buttons - use inline-block instead of flex */
+.share-buttons button,
+.location button,
+.attendance button {
+  display: inline-block !important;
+  white-space: nowrap !important;
+  min-width: auto !important;
+  margin: 5px !important;
+}
+
+/* 여백이 거의 없는 UI 요소만 nowrap 유지 */
+button,
+.share-btn,
+.slider-btn,
+.contact-btn,
+.retro-contact-btn {
+  white-space: nowrap !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  min-width: max-content;
+}
+
+/* Only scale Game Masters section - it has no room for wrapping */
+.retro-section .game-master-buttons,
+.retro-section .parent-contact-row {
+  transform: scale(min(1, max(0.75, calc(100vw / 450px))));
+  transform-origin: center;
+  margin: 0 auto;
+}
+
+/* No scaling for other sections - they have enough room */
+.share-buttons,
+.location,
+.attendance {
+  transform: none !important;
+}
+
+/* Ensure inline layout for buttons */
+.share-buttons,
+.attendance {
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+.location > div {
+  text-align: center !important;
+  white-space: nowrap !important;
+}
+
+/* Scale down on narrow screens - only for cramped elements */
+@media (max-width: 480px) {
+  /* Only Game Masters needs scaling */
+  .retro-section .game-master-buttons,
+  .retro-section .parent-contact-row {
+    transform: scale(min(0.85, max(0.7, calc(100vw / 500px))));
+    transform-origin: center;
+  }
+  
+  /* Calendar also needs scaling due to grid constraint */
+  .calendar-grid {
+    transform: scale(min(0.95, max(0.75, calc(100vw / 500px))));
+    transform-origin: center;
+  }
+  
+  /* Buttons should stay readable size */
+  button {
+    font-size: 11px !important;
+    padding: 10px 15px !important;
+  }
+  
+  button {
+    min-width: auto !important;
+    padding: 6px 8px !important;
+    font-size: 9px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  /* Only Game Masters needs aggressive scaling */
+  .retro-section .game-master-buttons,
+  .retro-section .parent-contact-row {
+    transform: scale(min(0.75, max(0.65, calc(100vw / 520px))));
+  }
+  
+  .calendar-grid {
+    transform: scale(min(0.8, max(0.7, calc(100vw / 500px))));
+  }
+  
+  /* Keep buttons at minimum readable size */
+  button {
+    font-size: 10px !important;
+    padding: 8px 12px !important;
+  }
+}
+
+/* Force Horizontal Layout Priority */
+@media (orientation: landscape) {
+  html {
+    font-size: clamp(8px, 2vh, 16px);
+  }
+  
+  button {
+    font-size: clamp(8px, 2vh, 14px) !important;
+    padding: clamp(6px, 1.2vh, 12px) clamp(12px, 2.5vh, 30px) !important;
+  }
+}
+
+/* Desktop & Ultra-wide Screen Support */
+@media (min-width: 768px) {
+  /* PC에서 패널 경계 넘어가는 문제 방지 */
+  .container {
+    max-width: 480px;
+    padding: 0;
+  }
+  
+  .calendar-grid {
+    width: calc(100% - 60px) !important;
+    max-width: 420px !important;
+    padding: 30px !important;
+    margin: 20px auto !important;
+  }
+  
+  .parent-contact-wrapper {
+    padding: 0 20px !important;
+    max-width: calc(100% - 40px) !important;
+  }
+  
+  .parent-contact-row {
+    padding: 15px !important;
+  }
+  
+  section {
+    overflow-x: hidden !important;
+  }
+  
+  /* 사진 갤러리 PC 최적화 */
+  .photo-slider {
+    max-width: 420px !important;
+  }
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 16px;
+  }
+  
+  .container {
+    max-width: 480px;
+  }
+  
+  .calendar-grid {
+    max-width: 420px !important;
+  }
+}
+
+/* === 1) 공통: 작은 폭에서도 글자가 너무 줄지 않게 === */
+html { font-size: 16px; } /* 기본값 */
+@media (max-width: 420px) {
+  html { font-size: 15px; }              /* 살짝만 */
+}
+@media (max-width: 360px) {
+  html { font-size: 14.5px; }            /* 과도한 축소 방지 */
+}
+
+/* === 2) 레트로 타이틀/하트 잘림 방지 === */
+.title-section,
+.retro-section .celebrate-text { 
+  overflow: visible !important; 
+}
+.retro-section .pixel-heart {
+  /* 너무 커서 잘리면 자연 감쇠 */
+  width: clamp(14px, 6vw, 28px);
+  height: clamp(14px, 6vw, 28px);
+}
+
+/* === 3) GAME MASTERS 헤더가 안 보이는 문제(겹침/대비) 방지 === */
+.retro-section .parents-contact h3 {
+  color: var(--pixel-yellow);
+  text-shadow: 0 1px 2px rgba(0,0,0,.7);
+  overflow: visible !important;
+  position: relative;
+  z-index: 1;
+  text-wrap: balance;
+  word-break: keep-all;
+}
+
+/* === 4) 버튼 행은 한 줄로 유지하려고 애쓰되, 폭이 모자라면 '버튼끼리'만 다음줄로 래핑 === */
+.share-buttons > div,
+.attendance > div,
+.directions > div,             /* “오시는 길” 지도 버튼 래퍼 */
+.slider-controls,              /* 좌/우 화살표 & 카운터 줄 */
+.game-master-buttons {         /* 레트로 부모 연락처 버튼 감싸는 행 */
+  display: flex;
+  flex-wrap: wrap;             /* 행은 접히도록 */
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* === 5) 버튼 내부 텍스트는 줄바꿈 금지 + 생략(...) 금지 === */
+button,
+.share-btn,
+.retro-contact-btn {
+  white-space: nowrap;         /* 내부 텍스트는 한 덩어리 */
+  text-overflow: clip;         /* '...' 방지 */
+  overflow: visible;           /* 아이콘/효과 잘림 방지 */
+  min-inline-size: max-content;/* 텍스트 길이만큼 넓이 확보 */
+  padding-inline: clamp(14px, 5vw, 30px);
+}
+
+/* 지도 버튼이 “…”로 숨겨지던 문제를 근본적으로 차단 */
+.directions button {
+  max-width: none;
+}
+
+/* JOIN GAME 버튼이 단어 단위로 갈라지지 않게 */
+.attendance.retro-section button {
+  word-break: keep-all;
+  letter-spacing: .02em;
+}
+
+/* 카카오톡 공유/링크 복사 버튼 사이 줄바꿈은 허용(버튼끼리만 아랫줄로),
+   각 버튼 글자 자체는 절대 쪼개지지 않게 */
+.share-buttons .share-btn {
+  flex: 0 1 auto;              /* 버튼 자체는 줄에서 빠질 수 있지만 */
+}
+
+/* Modern Theme - 부모 연락처 행 최적화 */
+.modern-section .parent-contact-row {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.modern-section .parent-info {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.modern-section .parent-title {
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
+  font-size: clamp(11px, 2.5vw, 14px) !important;
+}
+
+.modern-section .parent-name {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  font-size: clamp(13px, 3vw, 16px) !important;
+}
+
+.modern-section .parent-buttons {
+  flex-shrink: 0 !important;
+  display: flex !important;
+  gap: 4px !important;
+}
+
+.modern-section .contact-btn {
+  padding: 8px 10px !important;
+  font-size: clamp(10px, 2.2vw, 12px) !important;
+  white-space: nowrap !important;
+  min-width: fit-content !important;
+}
+
+/* 모바일에서 세로 정렬로 변경 */
+@media (max-width: 420px) {
+  .modern-section .parent-contact-row {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  
+  .modern-section .parent-info {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 3px !important;
+  }
+  
+  .modern-section .parent-buttons {
+    justify-content: center !important;
+  }
+  
+  .modern-section .contact-btn {
+    min-width: 80px !important;
+  }
+}
+
+/* 부모 연락처 행은 좌/우 버튼 아이콘이 눌려 찌그러지지 않게 */
+.parent-buttons { 
+  flex-shrink: 0; 
+}
+.parent-info { 
+  min-width: 0; 
+}
+.parent-info .parent-name { 
+  overflow-wrap: anywhere;     /* 긴 이름/영문도 안전 */
+}
+
+/* 컨테이너 좌우 패딩은 좁을 때만 살짝 줄이기(글자 자체 축소 대신 여백을 줄여 해결) */
+.container { 
+  padding-inline: clamp(12px, 4vw, 24px); 
+}
+
+/* === 공통: 초대 메시지/오시는길은 절대 '...'로 줄이지 않음 === */
+/* 글자는 처음엔 그대로, 진짜 넘치는 순간부터 JS가 scale()로 줄임 */
+.invitation, .directions { --tight-scale-min: .74; } /* 최소 스케일 하한선 */
+
+.invitation .title,
+.invitation .message,
+.directions .title,
+.directions .desc,
+.directions .address {
+  overflow: visible !important;
+  text-overflow: clip !important;  /* '...' 금지 */
+  white-space: normal !important;
+  word-break: keep-all;
+  line-height: 1.25;
+  display: inline-block;           /* JS에서 실제 폭/높이 측정 가능하도록 */
+  max-width: 100%;
+  transform-origin: left top;
+  will-change: transform;
+}
+
+/* 작은 폭에서는 먼저 좌우 패딩을 줄여서, 글자 축소를 최대한 늦춘다 */
+@media (max-width: 480px) {
+  .invitation .container,
+  .directions .container { padding-inline: 12px; }
+}
+@media (max-width: 360px) {
+  .invitation .container,
+  .directions .container { padding-inline: 8px; }
+}
+
+/* === Retro: Game Masters(혼주연락처) 레이아웃/아이콘 안정화 === */
+.retro-section .parents-contact { overflow: visible !important; }
+
+.retro-section .parents-contact h3 {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 12px;
+  color: var(--pixel-yellow, #ffd54a);
+  text-shadow: 0 1px 2px rgba(0,0,0,.7);
+}
+
+/* 카드 래퍼: 넓으면 여러 장 가로, 좁으면 세로 스택 */
+.retro-section .parent-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: stretch;
+  justify-content: center;
+}
+
+/* 한 명(아버지/어머니) 카드 */
+.retro-section .parent-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;   /* 위: 이름/호칭, 아래: 버튼들 */
+  gap: 8px;
+  min-width: min(280px, 100%);
+  max-width: 420px;
+  padding: 10px 12px;
+  border-radius: 10px;
+}
+
+/* 이름/호칭 텍스트는 줄임표 없이 보이도록 */
+.retro-section .parent-card .parent-info {
+  overflow: visible;
+  text-overflow: clip;
+  word-break: keep-all;
+}
+
+/* 요구사항: 버튼은 가로가 아니라 수직(Vertical)로 */
+.retro-section .parent-card .parent-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 버튼 안 텍스트는 한 줄 유지(버튼끼리는 줄갈이 허용) */
+.retro-section .parent-card .parent-actions .retro-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+  text-overflow: clip;
+  overflow: visible;
+  min-inline-size: max-content;
+  padding-inline: clamp(12px, 4.5vw, 20px);
+}
+
+/* 아이콘은 고정폭으로 찌그러지지 않게 */
+.retro-section .retro-contact-btn .icon {
+  flex: 0 0 18px;
+  width: 18px; height: 18px;
+}
+
+/* 매우 좁으면 카드 자체를 1열로 */
+@media (max-width: 520px) {
+  .retro-section .parent-list { flex-direction: column; }
+  .retro-section .parent-card { width: 100%; max-width: none; }
+}
+
+/* 지도/공유/기타 버튼 행: 버튼끼리만 래핑, 버튼 내부 텍스트는 한 줄 */
+.button-row, .share-buttons, .directions .buttons {
+  display: flex;
+  flex-wrap: wrap;      /* 행 자체는 접힘 */
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.button-row > *, .share-buttons > *, .directions .buttons > * {
+  white-space: nowrap;  /* 버튼 내부 텍스트는 한 줄 */
+  text-overflow: clip;
+  overflow: visible;
+  min-inline-size: max-content;
+}
+/* 절대 '...'로 생략되면 안 되는 영역 */
+.invitation-msg,
+.invitation-msg * ,
+.directions,
+.directions * ,
+.title-section .wedding-title,
+.parents-contact h3,
+.parents-contact .parent-info,
+.parents-contact .parent-name,
+.parents-contact .parent-title {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  word-break: keep-all;
+}
+
+/* 하트/픽셀 이모티콘이 반만 잘리는 것 방지 */
+.title-section,
+.title-section * {
+  overflow: visible !important;
+}
+
+/* 초대 메시지/오시는 길: 최소 13~14px는 보장, 그 아래부터만 축소 */
+.invitation-msg p,
+.directions div,
+.directions p,
+.directions li {
+  font-size: clamp(13px, 2.3vw, 16px) !important;
+  line-height: 1.8 !important;
+}
+
+/* 캔버스가 매우 좁을 때만 살짝 전체 스케일 */
+@media (max-width: 360px) {
+  .invitation-msg .content,
+  .directions .content {
+    transform: scale(0.92);
+    transform-origin: top center;
+  }
+}
+/* 기본: 가로 정렬은 유지 */
+.retro-section .parent-contact-row{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 8px !important;
+}
+
+/* 좁은 폭에서는 세로 스택 */
+@media (max-width: 480px) {
+  .retro-section .parent-contact-row{
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .retro-section .parent-info{
+    justify-content: center;
+    margin-bottom: 6px;
+  }
+  .retro-section .parent-buttons{
+    justify-content: center;
+  }
+  .retro-parent-title{ /* FATHER/MOTHER 라벨 흔들림 방지 */
+    min-width: auto;
+    display: inline-block;
+  }
+}
+/* 지도/공유/참석 버튼 컨테이너는 인라인-플로우 유지 */
+.share-buttons > div,
+.directions > div:nth-of-type(2),
+.attendance > div {
+  display: block;
+  text-align: center;
+  overflow: visible !important;
+  white-space: normal !important; /* 컨테이너는 줄바꿈 허용 */
+}
+
+/* 버튼은 내용 유지(… 금지), 필요 시 줄바꿈 없이 스스로 폭을 확보 */
+.share-buttons button,
+.directions button,
+.attendance button {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap !important;
+  min-width: max-content !important;
+}
+.directions h3,
+.directions div,
+.directions p {
+  white-space: normal !important;
+  text-overflow: clip !important;
+  overflow: visible !important;
+}
+
+/* 너무 좁아지면(≤360) 내용만 0.92배 */
+@media (max-width: 360px) {
+  .directions .info-title,
+  .directions .content {
+    transform: scale(0.92);
+    transform-origin: top center;
+  }
+}

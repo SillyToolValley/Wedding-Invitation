@@ -1,0 +1,405 @@
+/* ======================================
+   전체 경계 및 Wrapping 문제 수정
+   ====================================== */
+
+/* ======================================
+   1. 혼주 연락처 경계 및 이름 Wrapping 수정
+   ====================================== */
+
+/* Modern 혼주 연락처 */
+.modern-section .parents-contact {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modern-section .parent-contact-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 10px !important;
+  padding: 15px !important;
+  margin: 10px 0 !important;
+  box-sizing: border-box !important;
+}
+
+.modern-section .parent-info {
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.modern-section .parent-title {
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
+  font-size: clamp(10px, 2vw, 13px) !important;
+}
+
+.modern-section .parent-name {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  font-size: clamp(12px, 2.5vw, 15px) !important;
+}
+
+.modern-section .parent-buttons {
+  flex-shrink: 0 !important;
+  display: flex !important;
+  gap: 3px !important;
+}
+
+.modern-section .contact-btn {
+  padding: 6px 8px !important;
+  font-size: clamp(9px, 1.8vw, 11px) !important;
+  white-space: nowrap !important;
+}
+
+/* Retro 혼주 연락처 (Support Players) */
+.retro-section .parents-contact {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.retro-section .parent-contact-row {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 12px !important;
+  margin: 10px 0 !important;
+  box-sizing: border-box !important;
+}
+
+.retro-section .parent-buttons {
+  flex-shrink: 0 !important;
+  display: flex !important;
+  gap: 3px !important;
+}
+
+.retro-section .retro-contact-btn {
+  padding: 6px 8px !important;
+  font-size: clamp(7px, 1.5vw, 9px) !important;
+  white-space: nowrap !important;
+}
+
+/* ======================================
+   2. Retro 타이틀 아이콘 Wrapping 수정
+   ====================================== */
+
+/* Support Players 타이틀 */
+.retro-section .parents-contact h3 {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  white-space: nowrap !important;
+  font-size: clamp(14px, 3vw, 18px) !important;
+  overflow: hidden !important;
+}
+
+.retro-section .parents-contact h3 .pixel-icon {
+  flex-shrink: 0 !important;
+  width: clamp(16px, 3vw, 24px) !important;
+  height: clamp(16px, 3vw, 24px) !important;
+}
+
+/* Game Location 타이틀 */
+.retro-section .directions h3 {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  white-space: nowrap !important;
+  font-size: clamp(14px, 3vw, 18px) !important;
+  overflow: hidden !important;
+}
+
+.retro-section .directions h3 .pixel-icon {
+  flex-shrink: 0 !important;
+  width: clamp(16px, 3vw, 24px) !important;
+  height: clamp(16px, 3vw, 24px) !important;
+}
+
+/* ======================================
+   3. 공유 버튼 경계 수정
+   ====================================== */
+
+/* 공유 버튼 컨테이너 */
+.share-buttons {
+  width: 100% !important;
+  max-width: 440px !important;
+  margin: 0 auto !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+  text-align: center !important;
+  overflow: hidden !important;
+}
+
+.share-buttons > div {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 10px !important;
+  white-space: normal !important;
+}
+
+.share-btn {
+  width: 90% !important;
+  max-width: 280px !important;
+  padding: 15px 20px !important;
+  font-size: clamp(13px, 2.5vw, 15px) !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  display: block !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* 큰 화면에서 버튼 가로 배치 */
+@media (min-width: 768px) {
+  .share-buttons > div {
+    flex-direction: row !important;
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+  }
+  
+  .share-btn {
+    width: auto !important;
+    min-width: 160px !important;
+    max-width: 200px !important;
+  }
+}
+
+/* 모바일에서 버튼 크기 조정 */
+@media (max-width: 480px) {
+  .share-btn {
+    padding: 12px 15px !important;
+    font-size: clamp(12px, 3vw, 14px) !important;
+  }
+}
+
+/* ======================================
+   4. 미니게임 UI 경계 수정
+   ====================================== */
+
+/* Wedding Runner Game 타이틀 */
+.minigame-section h3 {
+  font-size: clamp(16px, 3.5vw, 24px) !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  padding: 0 20px !important;
+  text-align: center !important;
+}
+
+/* Game World 패널 */
+.game-screen-container {
+  width: 100% !important;
+  max-width: 440px !important;
+  margin: 0 auto !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+}
+
+.game-panel-content {
+  width: 100% !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.game-panel-content h2 {
+  font-size: clamp(14px, 3vw, 20px) !important;
+  white-space: nowrap !important;
+  margin-bottom: 15px !important;
+}
+
+.game-panel-content button {
+  width: auto !important;
+  max-width: 200px !important;
+  padding: 10px 20px !important;
+  font-size: clamp(10px, 2vw, 14px) !important;
+  white-space: nowrap !important;
+  margin: 10px auto !important;
+}
+
+/* Full Leader Board 타이틀 */
+.leaderboard-title {
+  font-size: clamp(14px, 3vw, 20px) !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  text-align: center !important;
+  padding: 0 20px !important;
+}
+
+/* ======================================
+   5. Thank You 문구 Wrapping 수정
+   ====================================== */
+
+/* Thank You 섹션 */
+.title-section.retro-section:last-of-type {
+  padding: 40px 20px !important;
+  box-sizing: border-box !important;
+}
+
+.celebrate-text {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+  font-size: clamp(14px, 3vw, 24px) !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.celebrate-text .pixel-heart {
+  flex-shrink: 0 !important;
+  width: clamp(14px, 2.5vw, 20px) !important;
+  height: clamp(14px, 2.5vw, 20px) !important;
+  display: inline-block !important;
+}
+
+.celebrate-text .bride-name,
+.celebrate-text .groom-name {
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* 작은 화면에서 Thank You 텍스트 크기 조정 */
+@media (max-width: 480px) {
+  .celebrate-text {
+    font-size: clamp(12px, 4vw, 18px) !important;
+    gap: 5px !important;
+  }
+  
+  .celebrate-text .pixel-heart {
+    width: clamp(12px, 3vw, 16px) !important;
+    height: clamp(12px, 3vw, 16px) !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .celebrate-text {
+    font-size: clamp(10px, 4.5vw, 16px) !important;
+    gap: 3px !important;
+  }
+  
+  /* 아주 작은 화면에서는 줄바꿈 허용 */
+  @media (max-width: 320px) {
+    .celebrate-text {
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      text-align: center !important;
+    }
+  }
+}
+
+/* ======================================
+   6. 공통 경계 유지 규칙
+   ====================================== */
+
+/* 모든 섹션 기본 설정 */
+section {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* 내부 컨텐츠 최대 너비 통일 */
+.modern-section > *:not(h3),
+.retro-section > *:not(h3) {
+  max-width: 440px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+/* 타이틀은 전체 너비 사용 */
+section h3 {
+  width: 100% !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+}
+
+/* ======================================
+   7. 반응형 폰트 크기 조정
+   ====================================== */
+
+/* 화면 크기별 기본 폰트 크기 */
+@media (max-width: 768px) {
+  .parent-title,
+  .parent-name {
+    font-size: clamp(11px, 2.5vw, 14px) !important;
+  }
+  
+  .contact-btn,
+  .retro-contact-btn {
+    font-size: clamp(9px, 2vw, 11px) !important;
+    padding: 5px 7px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .parent-contact-row {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  
+  .parent-info {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  
+  .parent-buttons {
+    justify-content: center !important;
+    width: 100% !important;
+  }
+}
+
+/* ======================================
+   8. 오버플로우 방지
+   ====================================== */
+
+* {
+  max-width: 100% !important;
+}
+
+.container {
+  overflow-x: hidden !important;
+}
+
+/* 디버그용 (필요시 활성화) */
+/*
+section {
+  outline: 2px solid red !important;
+}
+
+.parent-contact-row {
+  outline: 1px solid blue !important;
+}
+
+.share-buttons {
+  outline: 1px solid green !important;
+}
+
+.celebrate-text {
+  outline: 1px solid orange !important;
+}
+*/
